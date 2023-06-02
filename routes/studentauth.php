@@ -20,7 +20,9 @@ Route::middleware('auth:student')->prefix('student')->name('student.')->group(fu
 
   Route::prefix('modules/seat')->group(function(){
     Route::get('book_seat_index',[SeatController::class, 'bookindex'])->name('book_seat_index');
-    Route::post('seat_booked/{id}',[SeatController::class, 'seatbook'])->name('seat_booked');
+    Route::get('book_seat',[SeatController::class, 'bookshow'])->name('book_seat');
+    Route::get('seat_booking/{id}',[SeatController::class, 'seatbookshow'])->name('seat_booking');
+    Route::post('save_seat/{id}',[SeatController::class, 'finalbooking'])->name('save_seat');
   });
   
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])

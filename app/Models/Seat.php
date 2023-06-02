@@ -35,4 +35,15 @@ class Seat extends Model
         'password',
         'remember_token',
     ];
+
+    public function student()
+    {
+        return $this->hasOne(Student::class, 'id', 'student_id');
+    }
+    public function subject()
+    {
+        return $this->hasOne(Subject::class, 'id', 'subject_id');
+    }
+
+    
 }

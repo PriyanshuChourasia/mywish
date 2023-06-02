@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
-            $table->string('time');
+            $table->date('date');
+            $table->time('time');
             $table->string('subject_id');
             $table->string('student_id')->nullable();
             $table->string('seat_number');

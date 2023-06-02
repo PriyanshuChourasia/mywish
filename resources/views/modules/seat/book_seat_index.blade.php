@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h1 class="btn btn-outline-info  float-right">Book a Seat</h1>
+                                    <h1 class="  float-right"><a href="javascript:void(0)" data-url="{{route('student.book_seat')}}" class="btn btn-outline-info load-popup">Book a Seat</a></h1>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -35,9 +35,8 @@
                                                 <th>SL_No</th>
                                                 <th>Date</th>
                                                 <th>Time</th>
-                                                <th>Action</th>
                                                 <th>Status</th>
-                                               
+                                                <th>Action</th> 
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -46,14 +45,14 @@
                                                 <td>{{$k+1}}</td>
                                                 <td>{{$item->date}}</td>
                                                 <td>{{$item->time}}</td>
-                                                <td>{{$item->booking_date}}</td>
+                                               
                                                 @if ($item->student_id == null)
             
                                                         <td><span class="badge bg-success">Available</span></td>
                                                 @else
                                                     <td><span class="badge bg-danger">Booked</span></td>
                                                 @endif
-                                              
+                                                <td><a href="javascript:void(0)" class="btn btn-warning load-popup" data-url="">Cancel Request</a></td>
                                             </tr>
                                            @endforeach
     

@@ -53,7 +53,7 @@ class StudentController extends Controller
             'alt_contact' => 'required|string|min:10|max:12',
             'gender'=> 'required',
             'address'=> 'required',
-            'subject'=> 'required',
+            'subject_id'=> '',
             'student_class'=> 'required',
             'profile_image'=> '',
             'document_image'=> '',
@@ -74,7 +74,7 @@ class StudentController extends Controller
             $student->alt_contact = $request->alt_contact;
             $student->gender = $request->gender;
             $student->address = $request->address;
-            $student->subject = $request->subject;
+            $student->subject_id = $request->subject_id;
             $student->student_class = $request->student_class;
             if ($request->hasFile('profile_image')) {
                 $file = $request->file('profile_image');
@@ -107,8 +107,8 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-       
-
+        $data['student'] = Student::find($id);
+        return view('modules.student.view_student',$data);
     }
 
     /**
@@ -140,7 +140,7 @@ class StudentController extends Controller
             'alt_contact' => 'required|string|min:10|max:12',
             'gender'=> 'required',
             'address'=> 'required',
-            'subject'=> 'required',
+            'subject_id'=> '',
             'student_class'=> 'required',
             'profile_image'=> '',
             'document_image'=> '',
@@ -160,7 +160,7 @@ class StudentController extends Controller
             $student->alt_contact = $request->alt_contact;
             $student->gender = $request->gender;
             $student->address = $request->address;
-            $student->subject = $request->subject;
+            $student->subject_id = $request->subject_id;
             $student->student_class = $request->student_class;
             if ($request->hasFile('profile_image')) {
                 $destination = 'uploads/student/profile_image'.$student->profile_image;
@@ -202,9 +202,8 @@ class StudentController extends Controller
     public function destroy(string $id, Request $request)
     {
         $student = Student::find($id);
-       
+    //    dd($student);
         $student->delete();
-     
-       return redirect()->route('modules.student.student_index');
+       return redirect()->route('admin.student_index');
     }
 }
