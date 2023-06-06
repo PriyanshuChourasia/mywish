@@ -10,27 +10,23 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <label>Date:</label>
-                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                <input type="text" name="date" class="form-control datetimepicker-input"
-                                    data-target="#reservationdate" />
-                                <div class="input-group-append" data-target="#reservationdate"
-                                    data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
-                            </div>
+                            <label for="">Date</label>
+                            <input type="text" name="date"  id="set_date"  class="form-control">
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>Time picker:</label>
                             <div class="input-group date" id="timepicker" data-target-input="nearest">
-                                <input type="text" name="time" class="form-control datetimepicker-input"
-                                    data-target="#timepicker" />
+                                <input type="time" name="time" class="form-control" />
                                 <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                 </div>
                             </div>
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="">Time</label>
+                            <input type="time" name="time" id="" class="form-control">
                         </div>
                     </div>
                     <div class="col-12">
@@ -61,6 +57,20 @@
         </div> --}}
     </div>
 </div>
+
+<script>
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+
+    if(month<10)
+    {
+        month = '0'+month
+    }
+    var todaysDate = String(date.getDate() + 1).padStart(2,'0');
+    var datePattern = year + '-' + month + '-' + todaysDate;
+    $('#set_date').val(datePattern);
+</script>
 <script>
     $(function(){
         //Timepicker

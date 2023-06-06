@@ -47,22 +47,22 @@
                             <div class="form-group">
                                 <label for="">Alternate Contact Number</label>
                                 <input type="number" name="alt_contact" id="alt_contact" class="form-control"
-                                    placeholder="Enter Alternate Contact Number">
+                                    placeholder="Enter Alternate Contact Number" value="234567890">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Address</label>
                                 <input type="text" name="address" id="address" class="form-control"
-                                    placeholder="Enter Address">
+                                    placeholder="Enter Address" value="234567890">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Programming Language</label>
-                                <select class="form-select" aria-label="Default select example" name="subject"
+                                <label for="">Subject</label>
+                                <select class="form-select" aria-label="Default select example" name="subject_id"
                                     id="subject">
-                                    <option selected>Select Subject</option>
+                                    <option selected value="null">Select Subject</option>
                                     @foreach ($subjects as $subject)
                                         <option value="{{ $subject->id }}">{{ $subject->subject_name }}</option>
                                     @endforeach
@@ -74,7 +74,7 @@
                                 <label for="">Class</label>
                                 <select class="form-select" aria-label="Default select example" name="student_class"
                                     id="student_class">
-                                    <option selected>Open this select menu</option>
+                                    <option selected value="null">Open this select menu</option>
                                     @foreach ($student_classes as $student_class)
                                         <option value="{{ $student_class }}">{{ $student_class }}</option>
                                     @endforeach

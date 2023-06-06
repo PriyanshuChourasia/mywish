@@ -8,7 +8,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-right">
-                        {{-- <li class="breadcrumb-item"><a href="#">Home</a></li> --}}
+                        <li class="breadcrumb-item"><a href="#" class="btn btn-info">Restore</a></li>
                         <li class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}"
                                 class="btn btn-dark">Dashboard</a></li>
                     </ol>
@@ -34,9 +34,10 @@
                                     <thead>
                                         <tr>
                                             <th>SL_No</th>
-                                            <th>Email</th>
+                                            <th>Name</th>
                                             <th>Profile</th>
                                             <th>Contact</th>
+                                            <th>Subject</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -45,7 +46,7 @@
                                         @foreach ($collections as $k => $item)
                                             <tr>
                                                 <td>{{ $k + 1 }}</td>
-                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->name }}</td>
                                                 @if ($item->profile_image == null)
                                                     <td class="text-secondary">{{ __('No Image Found') }}</td>
                                                 @else
@@ -54,23 +55,29 @@
                                                             style="height: 50px; width:50px; border-radius:50%;"></td>
                                                 @endif
                                                 <td>{{ $item->contact_no }}</td>
-                                                <td>
-                                                    @if ($item->status == 1)
-                                                    <span class="badge bg-success">Active</span>
-                                                    @else
-                                                    <span class="badge bg-danger">Deactive</span>
-                                                    @endif
-                                                </td>
+                                                @if ($item->subject_id == 'null')
+                                                    <td><span>{{ __('No Subject Selected') }}</span></td>
+                                                @else
+                                                    <td>{{ $item->subject->subject_name }}</td>
+                                                    {{-- <td></td> --}}
+                                                @endif
+                                                @if ($item->status == 1)
+                                                    <td><span class="badge bg-success">Active</span></td>
+                                                @else
+                                                    <td><span class="badge bg-danger">Deactive</span></td>
+                                                @endif
+
+
                                                 <td>
                                                     <a href="javascript:void(0)"
                                                         data-url="{{ route('admin.edit_student', $item->id) }}"
                                                         class="load-popup btn btn-warning"><i
                                                             class="bi bi-pencil-square fw-bold"></i></a>
-                                                    <a href="#" class="btn btn-info"><i
+                                                    <a href="{{route('admin.view_student', $item->id)}}" class="btn btn-info"><i
                                                             class="bi bi-person-badge fw-bold"></i></a>
-                                                    <a href="{{route('admin.student_delete',$item->id)}}"  class="btn btn-danger"><i
-                                                            class="bi bi-trash fw-bold"></i></a>
-                                                            {{-- <button type="button" value="{{$item->id}}" class="btn btn-danger delete_student"><i class="bi bi-trash fw-bold"></i></button> --}}
+                                                    <a href="{{ route('admin.student_delete', $item->id) }}"
+                                                        class="btn btn-danger"><i class="bi bi-trash fw-bold"></i></a>
+                                                    {{-- <button type="button" value="{{$item->id}}" class="btn btn-danger delete_student"><i class="bi bi-trash fw-bold"></i></button> --}}
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -79,6 +86,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <th></th>
                                             <th></th>
                                             <th></th>
                                             <th></th>

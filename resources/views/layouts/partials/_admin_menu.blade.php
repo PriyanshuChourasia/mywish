@@ -17,22 +17,22 @@
         </p>
       </a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a href="{{route('admin.seat_index')}}" class="nav-link">
         <i class="bi bi-table pr-2" style="font-size: 20px"></i>
         <p>
           Seats
         </p>
       </a>
-    </li>
-    <li class="nav-item">
+    </li> --}}
+    {{-- <li class="nav-item">
       <a href="{{route('admin.class_index')}}" class="nav-link">
         <i class="nav-icon fas fa-pencil-ruler"></i>
         <p>
           Students Classes
         </p>
       </a>
-    </li>
+    </li> --}}
     <li class="nav-item">
       <a href="{{route('admin.subject_index')}}" class="nav-link">
         <i class="nav-icon fas fa-book"></i>
@@ -42,6 +42,23 @@
       </a>
     </li>
     <li class="nav-item">
+      <a href="{{route('admin.attendance_index')}}" class="nav-link">
+        <i class="bi bi-clipboard-check pr-2" style="font-size: 20px"></i>
+        <p>
+          Attendance
+        </p>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="{{route('admin.routine_index')}}" class="nav-link">
+        <i class="bi bi-card-list pr-2" style="font-size: 20px"></i>
+        <p>
+          Routine setup
+        </p>
+      </a>
+    </li>
+    {{-- <li class="nav-item">
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-copy"></i>
         <p>
@@ -100,6 +117,6 @@
           </a>
         </li>
       </ul>
-    </li>
+    </li> --}}
   
   </ul>

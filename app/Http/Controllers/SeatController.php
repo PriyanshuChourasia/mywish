@@ -63,7 +63,7 @@ class SeatController extends Controller
             for( $i = 1; $i<= $num; $i++)
             {
                 $seat = new Seat();
-                $seat->date = $request->date;
+                $seat->date = date('Y-m-d', strtotime($request->date));
                 $seat->time = $request->time;
                 $seat->subject_id = $request->subject_id;
                 $seat->seat_number = $request->seat_number;
@@ -72,6 +72,52 @@ class SeatController extends Controller
             return response()->json([
                 'status' => 200,
                 'messages' => 'Seat Added Successfully',
+            ]);
+        }
+    }
+
+    public function bookshow()
+    {
+        $data['collections'] = DB::table('seats')->where('seats.created_at','>', Carbon::today())->latest('seats.created_at')->get();
+        return response()->json([
+            'status' => 200,
+            'html' => view('modules.seat.book_seat',$data)->render(),
+        ]);
+    }
+
+    public function seatbookshow($id)
+    {
+        
+        $data['seatId'] = Seat::find($id);
+        return response()->json([
+            'status'=> 200,
+            'html' => view('modules.seat.seat_booked',$data)->render(),
+        ]);
+    }
+
+
+    public function finalbooking($id, Request $request)
+    {
+        $booking = Seat::find($id);
+        $validator = Validator::make($request->all(),[
+            'student_id' => 'required',
+
+        ]);
+
+        if($validator->fails())
+        {
+            return response()->json([
+                'status' => 400,
+                'messages'=> $validator->getMessageBag()
+            ]);
+        }else{
+            $booking = Seat::find($id);
+            $booking->student_id = $request->student_id;
+            $booking->update();
+
+            return response()->json([
+                'status' => 200,
+                'messages' => 'Seat Booked Successfully'
             ]);
         }
     }
@@ -86,15 +132,9 @@ class SeatController extends Controller
 
     public function bookindex()
     {
-            $subjectID = auth()->user()->subject;
-            $userID = auth()->user()->id;
-            // $seat = DB::table('seats')->where('seats.subject_id','=', $subjectID)->where('seats.created_at','>', Carbon::today())->latest('seats.created_at')->join('subjects','subjects.id', '=', 'seats.subject_id')->get();
-            // $data['collections'] = Seat::where('subject_id', $subjectID)->get();
-            $data['collections'] = DB::table('seats')->where('seats.subject_id', '=', $subjectID)->where('seats.created_at','>', Carbon::today())->latest('seats.created_at')->where('student_id', '=', $userID)->get();
-            // dd($seat);
-            return view('modules.seat.book_seat_index',$data);
-        
-       
+        $userId = auth()->user()->id;
+        $data['collections'] = Seat::where('student_id',$userId)->get();
+        return view('modules.seat.book_seat_index',$data);       
     }
     /**
      * Show the form for editing the specified resource.

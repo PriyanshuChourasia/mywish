@@ -9,30 +9,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Student extends Authenticatable
+class Attendance extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    protected $table = 'students';
-    protected $guard = 'student';
+    protected $table = 'attendances';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'contact_no',
-        'alt_contact',
-        'address',
-        'subject',
-        'student_class',
-        'status',
-        'gender',
-        'profile_image',
-        'document_image',
-        'password',
+        'student_id',
+        'subject_id',
+        'appearance',
+        'status'
     ];
 
     /**
@@ -57,5 +49,10 @@ class Student extends Authenticatable
     public function subject()
     {
         return $this->hasOne(Subject::class, 'id', 'subject_id');
+    }
+
+    public function student()
+    {
+        return $this->hasOne(Student::class, 'id', 'subject_id');
     }
 }

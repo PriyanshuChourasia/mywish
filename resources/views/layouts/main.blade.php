@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="{{asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src='{{asset("js/wish.js")}}'></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -57,6 +58,10 @@
         <!-- /.content-wrapper -->
 
     </div>
+
+
+
+ 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

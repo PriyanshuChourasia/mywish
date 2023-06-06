@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->string('alt_contact')->nullable();
             $table->string('address');
-            $table->string('subject');
+            $table->string('subject_id')->nullable();
             $table->string('student_class');
             $table->string('profile_image')->nullable();
             $table->string('document_image')->nullable();

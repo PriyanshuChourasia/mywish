@@ -36,7 +36,7 @@
                                 id="gender">
                                 <option selected>Open this select menu</option>
                                 @foreach ($genders as $gender)
-                                    <option value="{{ $gender }}">{{ $gender }}</option>
+                                    <option value="{{$gender}}"{{$student->gender == $gender ? 'selected': '' }}>{{$gender}}</option>    
                                 @endforeach
                             </select>
                         </div>
@@ -60,11 +60,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Programming Language</label>
-                            <select class="form-select" aria-label="Default select example" name="subject"
+                            <select class="form-select" aria-label="Default select example" name="subject_id"
                                 id="subject ">
                                 <option selected>Open this select menu</option>
                                 @foreach ($subjects as $subject)
-                                    <option value="{{ $subject->id }}"{{$subject->id == $student->subject ? 'selected': ''}}>{{ $subject->subject_name }}</option>
+                                    <option value="{{ $subject->id }}"{{$subject->id == $student->subject_id ? 'selected': ''}}>{{ $subject->subject_name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -76,7 +76,7 @@
                                 id="student_class">
                                 <option selected>Open this select menu</option>
                                 @foreach ($student_classes as $student_class)
-                                    <option value="{{ $student_class }}">{{ $student_class }}</option>
+                                    <option value="{{ $student_class}}"{{$student->student_class == $student_class ? 'selected':''}}>{{ $student_class }}</option>
                                 @endforeach
                             </select>
                         </div>
