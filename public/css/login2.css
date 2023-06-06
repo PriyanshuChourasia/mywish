@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+/* .body{
+    background-image: 
+} */
+
+.whole {
+    width: 70%;
+    height: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.81);
+
+    margin: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 50px;
+    border-radius: 50px;
+    box-shadow: 1px 1px 40px 15px rgb(227, 255, 227);
+    overflow: hidden;
+    transition: 1s;
+
+}
+.whole:hover{
+    border: 1.5px solid rgba(255, 255, 255, 0.81);
+
+    box-shadow: 1px 1px 40px 15px  rgb(21, 255, 21);
+
+}
+
+.box {
+    padding-top: 40px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    width: 50%;
+    background: rgb(138, 214, 138);
+    background: radial-gradient(circle, rgb(119, 255, 124) 0.3%, rgb(136, 228, 133) 21%, rgb(93, 245, 129) 43%, rgb(90, 226, 75) 77%);
+}
+
+.login {
+    font-size: 20px;
+    color: #004f04;
+    padding-left: 40px;
+    padding-top: 20px;
+    font-weight: 600;
+}
+
+.u-login {
+    color: #0a4e37;
+    font-size: 15px;
+    padding-left: 40px;
+    padding-top: 20px;
+
+}
+
+.email-out {
+
+    padding-left: 40px;
+    padding-top: 20px;
+
+
+}
+
+.input {
+    border: 2px solid rgba(0, 36, 4, 0.714);
+    width: 350px;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 18px;
+    background-color: rgba(255, 228, 196, 0);
+
+
+
+}
+
+::-webkit-input-placeholder {
+    color: rgba(28, 72, 18, 0.76);
+}
+
+.password-out {
+    padding-left: 40px;
+    padding-top: 20px;
+
+}
+
+.input:hover {
+    background-color: rgba(255, 255, 255, 0.349);
+    transition: 1s;
+
+}
+
+.fg {
+    padding-left: 270px;
+    padding-top: 20px;
+    color: #0a4e37;
+}
+
+.btn-out {
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+.login_btn {
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 20px;
+    width: 350px;
+    height: 40px;
+    color: #7eff6b;
+    background-color: rgba(8, 78, 24, 0.79);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 300;
+    font-size: 15px;
+
+
+}
+
+.btn:hover {
+    background-color: rgb(81, 255, 150);
+    transition: 1s;
+    color: #0a4e37;
+
+}
+
+.signup {
+    text-align: center;
+    padding-left: 40px;
+    padding-top: 20px;
+    color: #fff;
+
+}
+
+.picbox {
+    border: 1px solid rgba(0, 0, 0, 0);
+    width: 50%;
+    border-radius: 5px;
+}
+
+.pic {
+    height: 400px;
+    width: 300px;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
