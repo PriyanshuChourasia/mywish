@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\StudentClassesController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\RoutineController;
+use App\Http\Controllers\RoutineGroupController;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\SubjectController;
 use App\Models\Attendance;
@@ -58,8 +59,19 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
 
   Route::prefix('modules/routine')->group(function(){
     Route::get('routine_index',[RoutineController::class, 'index'])->name('routine_index');
+    Route::get('routine_list_index',[RoutineController::class, 'list_index'])->name('routine_list_index');
     Route::get('create_routine',[RoutineController::class, 'create'])->name('create_routine');
     Route::post('store_routine',[RoutineController::class, 'store'])->name('store_routine');
+    Route::get('routine_delete/{id}',[RoutineController::class, 'destroy'])->name('routine_delete');
+  });
+
+
+  Route::prefix('modules/group_routine')->group(function(){
+    Route::get('group_routine_index',[RoutineGroupController::class, 'index'])->name('group_routine_index');
+    Route::get('create_group_routine',[RoutineGroupController::class, 'create'])->name('create_group_routine');
+    Route::post('store_group_routine',[RoutineGroupController::class, 'store'])->name('store_group_routine');
+    Route::get('routine_group_delete/{id}',[RoutineGroupController::class, 'destroy'])->name('routine_group_delete');
+    Route::get('view_group_routine/{id}',[RoutineGroupController::class, 'show'])->name('view_group_routine');
   });
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');

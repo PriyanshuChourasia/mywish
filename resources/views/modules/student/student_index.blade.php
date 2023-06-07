@@ -59,7 +59,6 @@
                                                     <td><span>{{ __('No Subject Selected') }}</span></td>
                                                 @else
                                                     <td>{{ $item->subject->subject_name }}</td>
-                                                    {{-- <td></td> --}}
                                                 @endif
                                                 @if ($item->status == 1)
                                                     <td><span class="badge bg-success">Active</span></td>
@@ -69,14 +68,15 @@
 
 
                                                 <td>
-                                                    <a href="javascript:void(0)"
+                                                    <a href="javascript:void(0)" title="Edit Student"
                                                         data-url="{{ route('admin.edit_student', $item->id) }}"
                                                         class="load-popup btn btn-warning"><i
                                                             class="bi bi-pencil-square fw-bold"></i></a>
-                                                    <a href="{{route('admin.view_student', $item->id)}}" class="btn btn-info"><i
+                                                    <a href="{{route('admin.view_student', $item->id)}}" title="View Student" class="btn btn-info"><i
                                                             class="bi bi-person-badge fw-bold"></i></a>
-                                                    <a href="{{ route('admin.student_delete', $item->id) }}"
+                                                    <a href="{{ route('admin.student_delete', $item->id) }}" title="Delete Student"
                                                         class="btn btn-danger"><i class="bi bi-trash fw-bold"></i></a>
+                                                    <a href="#" class="btn btn-dark" title="Routine Setup"><i class="bi bi-clipboard2-data-fill"></i></a>
                                                     {{-- <button type="button" value="{{$item->id}}" class="btn btn-danger delete_student"><i class="bi bi-trash fw-bold"></i></button> --}}
                                                 </td>
                                             </tr>
