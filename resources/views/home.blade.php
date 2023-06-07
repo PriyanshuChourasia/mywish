@@ -9,154 +9,31 @@
     <link rel="stylesheet" href="{{ asset('css/front.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js "></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    {{-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /> --}}
 
-    {{-- <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .main {
-            background: #d7d7d7;
-        }
-
-        .carousal-caption {
-            bottom: 220px;
-            z-index: 2;
-
-        }
-
-        .carousal-item {
-            height: 100vh;
-            min-height: 300px;
-        }
-
-        .carousal-caption h5 {
-            font-size: 25px;
-            text-transform: uppercase;
-            letter-spacing: 20px;
-        }
-
-        .card-row-1 {
-            margin: 20px auto;
-        }
-
-
-        .cards {
-            align-items: center;
-            margin: 20px auto;
-            margin-left: 210px;
-        }
-        .course{
-            margin: 30px;
-        }
-        .carousal_img {
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            /* background-position: center;
-            background-size: cover; */
-        }
-
-
-        .card-row-1 {
-            margin: 20px auto;
-        }
-
-        .mainbox {
-            position: absolute;
-            border: 1px solid rgb(255, 255, 255);
-            width: 100%;
-            height: 450px;
-            padding-left: 120px;
-            padding-top: 65px;
-            background-color: rgb(94, 94, 94);
-            margin-top: 25px;
-        }
-
-        .sec-box {
-            position: relative;
-            width: 600px;
-            background-color: rgb(255, 255, 255);
-            height: 500px;
-            margin-left: 600px;
-            border: 1px solid rgba(151, 151, 151, 0.334);
-            padding: 50px;
-            box-shadow: 1px 2px 10px 5px rgba(0, 0, 0, 0.397);
-        }
-
-        .inf {
-            font-size: 14px;
-            padding-top: 30px;
-            color: #fff;
-            font-family: 'Arial Narrow Bold', sans-serif;
-
-        }
-
-        .ph {
-            font-size: 12px;
-            color: rgba(255, 246, 246, 0.673);
-            font-family: 'Arial Narrow Bold', sans-serif;
-            padding-top: 15px;
-        }
-
-        .icon {
-            width: 10px;
-            height: 14px;
-            padding-right: 25px;
-        }
-
-        .cnt {
-            font-size: 40px;
-            font-family: Georgia, Times, 'Times New Roman', serif;
-        }
-
-        .text {
-            width: 100%;
-            border-top:none;
-            border-right:none;
-            border-left:none;
-            border-color: rgb(0, 0, 0);
-            margin-top: 40px;
-            padding-bottom: 8px;
-        }
-
-        .txtbox {
-            width:100%;
-            border-top:none;
-            border-right:none;
-            border-left:none;
-            border-color: black;
-            height: 100px;
-
-        }
-
-    </style>
-    ---}}
-                <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js "></script>
-                <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-                <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-                {{-- <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">     --}}
 
 
 </head>
 
 <body>
-<<<<<<< HEAD
     <div class="main">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg  b">
             <div class="container-fluid">
                 <div>
-                    <img src="/images/wishlogo.png" style="width:120px;height:70px;" alt="">
+                    <a href="/"><img src="/images/wishlogo.png" style="width:120px;height:70px;"
+                            alt=""></a>
                 </div>
-                <a class="navbar-brand" href="#">WISH</a>
+                <a class="navbar-brand fw-bold  " style="font-size: 32px;" href="#">WISH</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row mb-3" style="text-align:right;">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item ">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
@@ -168,8 +45,7 @@
                                             <a href="{{ route('admin.dashboard') }}" class="btn btn-success">Admin
                                                 Dashboard</a>
                                         @else
-                                            <a href="{{ route('admin.login') }}"
-                                                class="btn btn-dark text-white">Admin
+                                            <a href="{{ route('admin.login') }}" class="btn btn-dark text-white">Admin
                                                 Log in</a>
                                         @endauth
                                     </div>
@@ -177,49 +53,7 @@
                             </div>
 
                         </li>
-                        {{-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="dropdown-item">
-                                        @if (Route::has('admin.login'))
-                                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-                                                @auth('admin')
-                                                    <a href="{{ route('admin.dashboard') }}" class="btn btn-success">Admin
-                                                        Dashboard</a>
-                                                @else
-                                                    <a href="{{ route('admin.login') }}"
-                                                        class="btn btn-dark text-white">Admin
-                                                        Log in</a>
-                                                @endauth
-                                            </div>
-                                        @endif
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="dropdown-item">
-                                        @if (Route::has('student.login'))
-                                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-                                                @auth('student')
-                                                    <a href="{{ route('student.dashboard') }}"
-                                                        class="btn btn-success">Student
-                                                        Dashboard</a>
-                                                @else
-                                                    <a href="{{ route('student.login') }}" class="btn btn-primary">Student
-                                                        Log
-                                                        in</a>
-                                                @endauth
-                                            </div>
-                                        @endif
-                                    </div>
 
-
-                                </li>
-                            </ul>
-                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -253,7 +87,7 @@
                 </div>
             </div>
         </div> --}}
-        
+
         {{-- card --}}
         <figure class="text-center">
             <h1 class="mt-4" style="font-weight:700; color:black;">EXPLORE COURSES</h1>
@@ -310,12 +144,12 @@
         </div>
 
         {{-- card ends --}}
-        <div class="row w-100 d-flex" >
+        <div class="row w-100 d-flex">
             <div class="col-md-6 mainbox mt-4 ms-4" style="padding-left: 80px;padding-top:70px;">
                 <div class="inf">
                     <iconify-icon icon="mdi:hours-24" class="icon"></iconify-icon>CALL US
                 </div>
-                <div class="ph">7897655468</div>
+                <div class="ph">782407 07689</div>
                 <div class="inf">
                     <iconify-icon icon="material-symbols:location-on" class="icon"></iconify-icon>LOCATION
                 </div>
@@ -323,7 +157,9 @@
                 <div class="inf">
                     <iconify-icon icon="ic:round-call" class="icon"></iconify-icon>EMAIL ADDRESS
                 </div>
-                <div class="ph">ABC@GMAIL.COM</div>
+                <div class="ph">samirram007@gmail.com
+
+                </div>
             </div>
             <div class="col-md-6  sec-box" style="width:700px;padding:40px;">
                 <h1>CONTACT US</h1>
@@ -334,42 +170,16 @@
             </div>
 
         </div>
-        {{-- <footer class="main-footer m-0">
-            <!-- To the right -->
-            <div class="float-right d-none d-sm-inline">
-                Wish Computer Centre
-            </div>
-            <!-- Default to the left -->
-            <strong>
-                <div>Copyright &copy; 2014-{{date('Y')}}</div>  
-                <div>
-                    <a href="{{ env('APP_URL') }}"> {{ env('APP_URL') }}  </a>.
-                </div>
-            </strong>
-            <div>All rights reserved.</div> 
-        </footer> --}}
-        <footer id="footer" class="footer mt-5" style="color:#494949;">
-            <div class="container" id="footer">
+        <footer id="footer" class="footer mt-5">
+            <div class="container" style="color:#494949;" id="footer">
                 <div class="row gy-4">
                     <div class="col-lg-5 col-md-12 footer-info">
-                        <a href="" class="logo d-flex align-items-center fw-bold  fs-2" style="color:#494949;">Wish Computer Centre</a>
-                        <p class="text-grey" style="color:#494949;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima harum commodi
-                            ratione aut quis et
-                            alias iusto debitis? Cupiditate autem, debitis voluptates sequi nulla laboriosam dolorem doloremque.
-                            Aliquid, culpa provident.</p>
-                        <div class="social_links d-flex mt-4">
-                                <div class="col">
-                                    <a href="" class="facebook"><i class="fa fa-facebook"></i></a>
-                                </div>
-                                <div class="col">
-                                    <a href="" class="twitter"><i class="fa fa-twitter"></i></a>
-                                </div>
-                                <div class="col">
-                                    <a href="" class="whatsapp"><i class="fa fa-whatsapp"></i></a>
-                                </div>
-    
-                            
-                        </div>
+                        <a href="" class="logo d-flex align-items-center fw-bold  fs-2"
+                            style="color:#494949;">
+                            Wish Computer Centre
+                        </a>
+                        <p class="text-grey">Coding is the language of the future, and everybody should learn it.</p>
+
                     </div>
                     <div class="col-lg-3 col-md-6 footer_links">
                         <h3 class="fs-5  text-center position-relative pb-3" style="color:#494949;">Main Links</h3>
@@ -386,7 +196,23 @@
                             Baguiati, jyangra
                         </p>
                     </div>
+
                 </div>
+                <div class="social_links d-flex mt-4 m-auto">
+                    <div class="col-md-6">
+                        <a href="https://www.facebook.com/samir.ram1?mibextid=ZbWKwL" class="facebook ">
+                            <i class="fa fa-facebook fa-2x "></i></a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="https://instagram.com/samirram007?igshid=MzRlODBiNWFlZA==" class="instagram">
+                            <i class="fa fa-instagram fa-2x"></i></a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="https://wa.me/8240504123 " class="whatsapp ">
+                            <i class="fa fa-whatsapp fa-2x"></i></a>
+                    </div>
+                </div>
+
                 <div class="container mt-4 py-3 pb-5">
                     <div class="copyright text-center " style="color:#494949;">
                         "@Copyright" <strong>Wish</strong>".All rights are Reserved by WISH"
@@ -394,100 +220,10 @@
                 </div>
             </div>
         </footer>
-        
+
     </div>
-    @yield('content')
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
 </html>
-
-
-
-{{-- <div>
-    @if (Route::has('student.login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-            @auth('student')
-                <a href="{{ route('student.dashboard') }}" class="btn btn-success">Student Dashboard</a>
-            @else
-                <a href="{{ route('student.login') }}" class="btn btn-primary">Student Log in</a>
-            @endauth
-        </div>
-    @endif
-</div>
-
-@yield('content') --}}
-=======
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                      <div>
-                        @if (Route::has('admin.login'))
-                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-                                @auth('admin')
-                                    <a href="{{ route('admin.dashboard') }}" class="btn btn-success">Admin Dashboard</a>
-                                @else
-                                    <a href="{{ route('admin.login') }}" class="btn btn-dark">Admin Log in</a>
-                                @endauth
-                            </div>
-                        @endif
-                      </div>
-                    </li>
-                  
-                </ul>
-               
-            </div>
-        </div>
-    </nav>
-
-
-    @yield('content')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
-{{-- <div>
-  @if (Route::has('admin.login'))
-      <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-          @auth('admin')
-              <a href="{{ route('admin.dashboard') }}" class="btn btn-success">Admin Dashboard</a>
-          @else
-              <a href="{{ route('admin.login') }}" class="btn btn-dark">Admin Log in</a>
-          @endauth
-      </div>
-  @endif
-</div>
-<div>
-  @if (Route::has('student.login'))
-      <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-          @auth('student')
-              <a href="{{ route('student.dashboard') }}" class="btn btn-success">Student Dashboard</a>
-          @else
-              <a href="{{ route('student.login') }}" class="btn btn-primary">Student Log in</a>
-          @endauth
-      </div>
-  @endif
-</div> --}}
->>>>>>> 9251b28e4f2b0af36a07a969be1376885eafe35b
