@@ -5,7 +5,7 @@
             <link rel="stylesheet" href="{{ asset('css/login2.css') }}">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-            <div class="row mt-4 d-flex whole w-70">
+            <div class="row mt-4 d-flex whole w-75 m-auto">
                 <div class="col-md-6 p-4 box">
                     <div class="login mt-4">LOGIN</div>
                     <div class="u-login">Login to continue to our application.</div>

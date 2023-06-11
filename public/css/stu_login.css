@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+}
+.container-fluid {
+    height: 100%;
+    overflow-y: hidden; /* don't show content that exceeds my height */
+}
+.whole{
+    background: rgb(186,255,203);
+    background: linear-gradient(90deg, rgba(186,255,203,1) 3%, rgba(144,251,83,1) 25%, rgba(121,234,74,1) 59%, rgba(43,180,127,1) 100%);}
+.log-btn{
+    background: rgb(186,255,203);
+    background: linear-gradient(90deg, rgb(133 191 147) 3%, rgb(111 204 58) 25%, rgba(121,234,74,1) 59%, rgba(43,180,127,1) 100%);}
+    .body-film {
+    min-height: 100%;
+    overflow-y: scroll;
+}.main{
+    border: 0.5px solid rgb(110, 255, 62);
+    border-radius: 5px;
+    background-color: rgba(224, 255, 206, 0.758);
+
+}
+.vec-img{
+    height:500px;
+    margin-left: -10px;
+    
+}
