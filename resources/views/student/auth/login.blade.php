@@ -4,7 +4,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
         @csrf
         <div class="row main mx-auto w-75 mt-5  d-flex">
-            <div class="box-1 col-md-6">
+            <div class="box-1 col-md-6
+            ">
                 <img src="/images/vector-stu.png" class="vec-img w-100 p-0 " alt="">
             </div>
             <div class="box-2 col-md-6  p-5">

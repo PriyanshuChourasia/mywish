@@ -54,16 +54,31 @@ body {
     margin-left: -10px;
 
 }
+.box1{
+    width: 50%;
+}
+.box-2{
+    width: 50%;
+}
 
-@media only screen and (max-width: 468px) {
-    .box1 {
-        width: 100%;
+@media only screen and (max-width: 1000px) {
+    .box-1 {
+        width: 100% !important;
+        display: none !important;
     }
-    .box2{
-        width: 100%;
+    .box-2{
+        width: 100% !important;
     }
-    .col-md-6 {
-        flex: 0 0 auto;
-        width: 100%;
+}
+@media only screen and (max-width: 400px) {
+    .box-1 {
+        display: none !important;
+    }
+    .box-2{
+        width: 100% !important;
+    
+    }
+    .input{
+        height: 40px !important;
     }
 }
