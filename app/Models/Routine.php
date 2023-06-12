@@ -19,13 +19,7 @@ class Routine extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'day_count',
-        'routine_name',
-        'day_one',
-        'day_two',
-        'day_three',
-        'day_four',
-        'day_five',
+        'day_name',
         'class_from',
         'class_upto'
     ];

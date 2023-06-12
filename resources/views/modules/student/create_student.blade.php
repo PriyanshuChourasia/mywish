@@ -47,20 +47,20 @@
                             <div class="form-group">
                                 <label for="">Alternate Contact Number</label>
                                 <input type="number" name="alt_contact" id="alt_contact" class="form-control"
-                                    placeholder="Enter Alternate Contact Number" value="234567890">
+                                    placeholder="Enter Alternate Contact Number" value="1234567890">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Address</label>
                                 <input type="text" name="address" id="address" class="form-control"
-                                    placeholder="Enter Address" value="234567890">
+                                    placeholder="Enter Address" value="1234567890">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Subject</label>
-                                <select class="form-select" aria-label="Default select example" name="subject_id"
+                                <select class="form-select" required aria-label="Default select example" id="subject_id" name="subject_id"
                                     id="subject">
                                     <option selected value="null">Select Subject</option>
                                     @foreach ($subjects as $subject)
@@ -114,6 +114,8 @@
                 var formData = new FormData(this);
 
                 $('#register_btn').prop('disabled', true);
+              
+          
 
                 $.ajax({
                     url: "{{ route('admin.store_student') }}",

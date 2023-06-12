@@ -20,7 +20,8 @@ class Subject extends Authenticatable
     protected $fillable = [
         'subject_name',
         'fees',
-        'duration'
+        'duration',
+        'description'
        
     ];
 

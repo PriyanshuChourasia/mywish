@@ -36,7 +36,8 @@ class SubjectController extends Controller
         $validator = Validator::make($request->all(),[
             'subject_name' => 'required|string',
             'fees'=> 'required|max:6',
-            'duration' => 'required'
+            'duration' => 'required',
+            'description'=> '',
         ]);
 
         if($validator->fails())
@@ -50,6 +51,7 @@ class SubjectController extends Controller
             $subject->subject_name = $request->subject_name;
             $subject->fees = $request->fees;
             $subject->duration = $request->duration;
+            $subject->description = $request->description;
 
             $subject->save();
             $data['collections'] = Subject::all();

@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Routine List</h1>
+                    <h1 class="m-0">Routine</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-right">
@@ -18,51 +18,46 @@
     </div>
 
     <div class="container">
-        <section class="content">
+          <!-- Main content -->
+          <section class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title float-right"><a href="javascript:void(0)" data-url="{{route('admin.create_routine')}}" class="btn btn-dark load-popup">Create Routine</a></h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table id="example2" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>SL_No</th>
-                                            <th>Days</th>
-                                            <th>Time</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                       
-
-
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
+              <!-- Small boxes (Stat box) -->
+              <div class="row">
+                <div class="col-md-6 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-info">
+                    <div class="inner">
+                      <h3>{{$routine_count}}</h3>
+      
+                      <p>Routine</p>
                     </div>
-                    <!-- /.col -->
+                    <div class="icon">
+                      <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="{{route('admin.routine_list_index')}}" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
                 </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </section>
+                <!-- ./col -->
+                <div class="col-md-6 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-success">
+                    <div class="inner">
+                      <h3>{{$routine_group}}</h3>
+      
+                      <p>Routine Group</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="{{route('admin.group_routine_index')}}" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                <!-- ./col -->
+              </div>
+              <!-- /.row -->
+
+            </div><!-- /.container-fluid -->
+          </section>
+          <!-- /.content -->
     </div>
-
-
 @endsection

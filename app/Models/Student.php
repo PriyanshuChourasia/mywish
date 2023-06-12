@@ -26,7 +26,7 @@ class Student extends Authenticatable
         'contact_no',
         'alt_contact',
         'address',
-        'subject',
+        'subject_id',
         'student_class',
         'status',
         'gender',

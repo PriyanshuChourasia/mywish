@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Routine;
+use App\Models\RoutineGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -14,9 +15,16 @@ class RoutineController extends Controller
      */
     public function index()
     {
-        return view('modules.routine.routine_index');
+        $data['routine_count'] = Routine::all()->count();   
+        $data['routine_group'] = RoutineGroup::all()->count();  
+        return view('modules.routine.routine_index',$data);
     }
 
+    public function list_index()
+    {
+        $data['collections'] = Routine::all();
+        return view('modules.routine.routine_list_index',$data);
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -35,13 +43,7 @@ class RoutineController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'routine_name' => 'required|unique',
-            'day_count' => 'required',
-            'day_one' => '',
-            'day_two' => '',
-            'day_three' => '',
-            'day_four' => '',
-            'day_five' => '',
+            'day_name' => 'required',
             'class_from'=> 'required',
             'class_upto' => 'required'
         ]);
@@ -54,13 +56,7 @@ class RoutineController extends Controller
             ]);
         }else{
             $routine = new Routine();
-            $routine->routine_name = $request->routine_name;
-            $routine->day_count = $request->day_count;
-            $routine->day_one = $request->day_one;
-            $routine->day_one = $request->day_two;
-            $routine->day_one = $request->day_three;
-            $routine->day_one = $request->day_four;
-            $routine->day_one = $request->day_five;
+            $routine->day_name = $request->day_name;
             $routine->class_from = $request->class_from;
             $routine->class_upto = $request->class_upto;
             $routine->save();
@@ -98,8 +94,12 @@ class RoutineController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Routine $routine)
+    public function destroy(Routine $routine, $id)
     {
-        //
+        $routine = Routine::find($id);
+
+        $routine->delete();
+
+        return redirect()->route('admin.routine_list_index');
     }
 }
