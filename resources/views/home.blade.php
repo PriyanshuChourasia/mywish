@@ -54,7 +54,7 @@
                         </li>
                         <li class="nav-item">
 
-                            <div class="nav-item">
+                            <div class="nav-item ms-2">
                                 @if (Route::has('student.login'))
                                     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
                                         @auth('student')
@@ -109,10 +109,10 @@
         <figure class="text-center">
             <h1 class="mt-4" style="font-weight:700; color:black;">EXPLORE COURSES</h1>
         </figure>
-        <div class="container mx-auto">
-            <div class="row gy-3 mx-auto">
+        <div class="container w-100 me-5">
+            <div class="row gy-3 ">
                 <div class="col-md-4 ">
-                    <div class=" card" style="width: 18rem;">
+                    <div class=" card " style="width: 18rem;">
                         <img src="/images/htmlcsslogo.png" class="card-img-top" alt="">
                         <div class="card-body">
                             <h2 class="card-text text-center" style="font-weight:600;">HTML CSS</h2>
