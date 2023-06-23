@@ -16,20 +16,8 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="">Duration(in months)</label>
-                                <input type="number" name="duration" id="duration" class="form-control" placeholder="Enter Duration of Course">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
                                 <label for="">Fees(per months)</label>
                                 <input type="number" name="fees" id="fees" class="form-control" placeholder="Enter Fees of Course">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="">Description</label>
-                                <textarea name="description" id="description" cols="60" rows="2" placeholder="Enter Description About Subject"></textarea>
                             </div>
                         </div>
                     </div>

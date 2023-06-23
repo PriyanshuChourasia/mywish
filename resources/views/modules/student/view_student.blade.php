@@ -9,7 +9,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             {{-- <li class="breadcrumb-item"><a href="#">Home</a></li> --}}
-            {{-- <li class="breadcrumb-item active"></li> --}}
+            <li class="breadcrumb-item active"><a href="{{route('admin.student_index')}}" class="btn btn-dark">{{__('Go Back')}}</a></li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -38,10 +38,10 @@
                         <li class="list-group-item">
                           <b>Classes</b> <a class="float-right">00</a>
                         </li>
-                        {{-- <li class="list-group-item">
-                          <b>Following</b> <a class="float-right">543</a>
-                        </li>
                         <li class="list-group-item">
+                          <b>Email</b> <a class="float-right" style="user-select: none">{{$student->email}}</a>
+                        </li>
+                        {{-- <li class="list-group-item">
                           <b>Friends</b> <a class="float-right">13,287</a>
                         </li> --}}
                       </ul>
@@ -59,10 +59,10 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                      <strong><i class="fas fa-book mr-1"></i>{{__('Subject')}}</strong>
+                      {{-- <strong><i class="fas fa-book mr-1"></i>{{__('Subject')}}</strong> --}}
       
                       <p class="text-muted">
-                       {{$student->subject->subject_name}}
+                      
                       </p>
       
                       <hr>
@@ -87,7 +87,7 @@
       
                       <strong><i class="far fa-file-alt mr-1"></i>Email</strong>
       
-                      <p class="text-muted">{{$student->address}}</p>
+                      <p class="text-muted">{{$student->email}}</p>
                     </div>
                     <!-- /.card-body -->
                   </div>

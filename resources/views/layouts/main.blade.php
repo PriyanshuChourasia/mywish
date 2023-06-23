@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src='{{asset("js/wish.js")}}'></script>
+  <link rel="stylesheet" href="{{asset('css/wish.css')}}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

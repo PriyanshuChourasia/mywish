@@ -45,9 +45,9 @@
                                                 <td>{{ $k + 1 }}</td>
                                                 <td class="fw-bold text-primary">{{ $item->subject->subject_name }}</td>
                                                 <td>
-                                                    <a href="#" data-url="{{route('admin.view_group_routine',$item->id)}}" class="btn btn-outline-info load-popup"><i
+                                                    <a href="#" data-url="{{route('admin.view_group_routine',$item->group_name)}}" class="btn btn-outline-info load-popup"><i
                                                             class="bi bi-person-badge fw-bold"></i></a>
-                                                    <a href="{{ route('admin.routine_group_delete', $item->id) }}"
+                                                    <a href="{{ route('admin.routine_group_delete', $item->group_name) }}"
                                                         class="btn btn-danger"><i class="bi bi-trash fw-bold"></i></a>
                                                 </td>
 

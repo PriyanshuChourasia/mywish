@@ -35,7 +35,6 @@
                                             <th>SL_No</th>
                                             <th>Subject</th>
                                             <th>Fees(per Months)</th>
-                                            <th>Duration(in Months)</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -45,17 +44,15 @@
                                         <th>{{$k+1}}</th>
                                         <th>{{$item->subject_name}}</th>
                                         <th>{{$item->fees}}</th>
-                                        <th>{{$item->duration}}</th>
                                         <th>
-                                            <a href="javascript:void(0)" class="btn btn-warning"><i class="bi bi-pencil-square fw-bold"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="bi bi-trash3 fw-bold"></i></a>
+                                            <a href="javascript:void(0)" class="btn btn-warning load-popup" data-url="{{route('admin.edit_subject',$item->id)}}"><i class="bi bi-pencil-square fw-bold"></i></a>
+                                            {{-- <a href="" class="btn btn-danger"><i class="bi bi-trash3 fw-bold"></i></a> --}}
                                         </th>
                                     </tr>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th></th>
                                             <th></th>
                                             <th></th>
                                             <th></th>

@@ -92,7 +92,7 @@
         <figure class="text-center">
             <h1 class="mt-4" style="font-weight:700; color:black;">EXPLORE COURSES</h1>
         </figure>
-        <div class="cards ">
+        {{-- <div class="cards ">
             <div class="row card-row-1 m">
                 <div class="col-md-6 card course" style="width: 18rem;">
                     <img src="/images/htmlcsslogo.png" class="card-img-top" alt="">
@@ -141,7 +141,7 @@
             </div>
 
 
-        </div>
+        </div> --}}
 
         {{-- card ends --}}
         <div class="row w-100 d-flex">

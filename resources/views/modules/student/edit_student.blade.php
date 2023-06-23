@@ -57,30 +57,26 @@
                                 placeholder="Enter Address" value="{{$student->address}}">
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">Programming Language</label>
-                            <select class="form-select" aria-label="Default select example" name="subject_id"
-                                id="subject ">
-                                <option selected>Open this select menu</option>
-                                @foreach ($subjects as $subject)
-                                    <option value="{{ $subject->id }}"{{$subject->id == $student->subject_id ? 'selected': ''}}>{{ $subject->subject_name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Class</label>
-                            <select class="form-select" aria-label="Default select example" name="student_class"
+                            <select class="form-select" aria-label="Default select example" name="education"
                                 id="student_class">
                                 <option selected>Open this select menu</option>
                                 @foreach ($student_classes as $student_class)
-                                    <option value="{{ $student_class}}"{{$student->student_class == $student_class ? 'selected':''}}>{{ $student_class }}</option>
+                                    <option value="{{ $student_class}}"{{$student->education == $student_class ? 'selected':''}}>{{ $student_class }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Gaurdian Name</label>
+                            <input type="text" name="parents_name" id="parents_name" class="form-control" placeholder="Enter Parent Name" value="{{$student->parents_name}}">
+                        </div>
+                    </div>
+                   
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -140,10 +136,11 @@
                         $('#data_update').prop('disabled', false);  
                         toastr.error('Some Error Occured'); 
                     }else if(response.status === 200){
-                        toastr.success('Student Updated Successfully');
+                       
                         // $('#modal-popup').html(response.html);
                         $('#modal-popup').modal('hide');
                         window.location.reload(true);
+                        toastr.success('Student Updated Successfully');
                     }
                 }
             });

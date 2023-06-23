@@ -8,7 +8,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-right">
-                        <li class="breadcrumb-item"><a href="#" class="btn btn-info">Restore</a></li>
+                        {{-- <li class="breadcrumb-item"><a href="#" class="btn btn-info">Restore</a></li> --}}
                         <li class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}"
                                 class="btn btn-dark">Dashboard</a></li>
                     </ol>
@@ -37,7 +37,6 @@
                                             <th>Name</th>
                                             <th>Profile</th>
                                             <th>Contact</th>
-                                            <th>Subject</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -55,16 +54,9 @@
                                                             style="height: 50px; width:50px; border-radius:50%;"></td>
                                                 @endif
                                                 <td>{{ $item->contact_no }}</td>
-                                                @if ($item->subject_id == 'null')
-                                                    <td><span>{{ __('No Subject Selected') }}</span></td>
-                                                @else
-                                                    <td>{{ $item->subject->subject_name }}</td>
-                                                @endif
-                                                @if ($item->status == 1)
-                                                    <td><span class="badge bg-success">Active</span></td>
-                                                @else
-                                                    <td><span class="badge bg-danger">Deactive</span></td>
-                                                @endif
+
+                                                <td><span class="badge bg-success">Active</span></td>
+
 
 
                                                 <td>
@@ -72,11 +64,17 @@
                                                         data-url="{{ route('admin.edit_student', $item->id) }}"
                                                         class="load-popup btn btn-warning"><i
                                                             class="bi bi-pencil-square fw-bold"></i></a>
-                                                    <a href="{{route('admin.view_student', $item->id)}}" title="View Student" class="btn btn-info"><i
+                                                    <a href="{{ route('admin.view_student', $item->id) }}"
+                                                        title="View Student" class="btn btn-info"><i
                                                             class="bi bi-person-badge fw-bold"></i></a>
-                                                    <a href="{{ route('admin.student_delete', $item->id) }}" title="Delete Student"
-                                                        class="btn btn-danger"><i class="bi bi-trash fw-bold"></i></a>
-                                                    <a href="#" class="btn btn-dark" title="Routine Setup"><i class="bi bi-clipboard2-data-fill"></i></a>
+
+                                                    {{-- <a href="{{ route('admin.student_delete', $item->id) }}" title="Delete Student"
+                                                        class="btn btn-danger"><i class="bi bi-trash fw-bold"></i></a> --}}
+                                                    {{-- <a href="javascript:void(0)"
+                                                        data-url="{{ route('admin.ban_student', $item->id) }}"
+                                                        class="btn btn-danger load-popup"><i
+                                                            class="bi bi-x-square-fill"></i></a> --}}
+                                                            <a href="javascript:void" data-url="{{route('admin.student_delete',$item->id)}}" class="btn btn-danger load-popup"><i class="bi bi-trash fw-bold"></i></a>
                                                     {{-- <button type="button" value="{{$item->id}}" class="btn btn-danger delete_student"><i class="bi bi-trash fw-bold"></i></button> --}}
                                                 </td>
                                             </tr>
@@ -86,7 +84,6 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th></th>
                                             <th></th>
                                             <th></th>
                                             <th></th>

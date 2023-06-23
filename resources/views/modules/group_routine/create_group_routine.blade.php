@@ -16,7 +16,7 @@
                                 @forelse ($subjects as $item)
                                 <option value="{{$item->id}}">{{$item->subject_name}}</option>
                                 @empty
-                                    
+                                <option>No Subject in List</option>
                                 @endforelse
                               </select>
                         </div>

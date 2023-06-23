@@ -54,31 +54,26 @@
                             <div class="form-group">
                                 <label for="">Address</label>
                                 <input type="text" name="address" id="address" class="form-control"
-                                    placeholder="Enter Address" value="1234567890">
+                                    placeholder="Enter Address" value="Baguiati">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Subject</label>
-                                <select class="form-select" required aria-label="Default select example" id="subject_id" name="subject_id"
-                                    id="subject">
-                                    <option selected value="null">Select Subject</option>
-                                    @foreach ($subjects as $subject)
-                                        <option value="{{ $subject->id }}">{{ $subject->subject_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Class</label>
-                                <select class="form-select" aria-label="Default select example" name="student_class"
+                                <label for="">Education</label>
+                                <select class="form-select" aria-label="Default select example" name="education"
                                     id="student_class">
                                     <option selected value="null">Open this select menu</option>
                                     @foreach ($student_classes as $student_class)
                                         <option value="{{ $student_class }}">{{ $student_class }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Gaurdian Name</label>
+                                <input type="text" name="parents_name" id="parents_name" class="form-control" placeholder="Enter Parent Name">
                             </div>
                         </div>
                     </div>
@@ -97,10 +92,6 @@
                     </div>
                 </form>
             </div>
-            {{-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div> --}}
         </div>
     </div>
 
