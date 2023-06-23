@@ -109,14 +109,6 @@
         <figure class="text-center">
             <h1 class="mt-4" style="font-weight:700; color:black;">EXPLORE COURSES</h1>
         </figure>
-<<<<<<< HEAD
-        {{-- <div class="cards ">
-            <div class="row card-row-1 m">
-                <div class="col-md-6 card course" style="width: 18rem;">
-                    <img src="/images/htmlcsslogo.png" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h2 class="card-text text-center" style="font-weight:600;">HTML CSS</h2>
-=======
         <div class="container w-100 me-5">
             <div class="row gy-3 ">
                 <div class="col-md-4 ">
@@ -125,7 +117,6 @@
                         <div class="card-body">
                             <h2 class="card-text text-center" style="font-weight:600;">HTML CSS</h2>
                         </div>
->>>>>>> cc327699f7929b38476999e2419f4ca4cfe98555
                     </div>
                 </div>
 
@@ -185,7 +176,7 @@
             </div>
 
 
-        </div> --}}
+        </div> 
 
         {{-- card ends --}}
         <div class="row w-100 d-flex mt-4">
