@@ -51,6 +51,23 @@
                                     </div>
                                 @endif
                             </div>
+                        </li>
+                        <li class="nav-item">
+
+                            <div class="nav-item ms-2">
+                                @if (Route::has('student.login'))
+                                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
+                                        @auth('student')
+                                            <a href="{{ route('student.dashboard') }}" class="btn btn-success">Student
+                                                Dashboard</a>
+                                        @else
+                                            <a href="{{ route('student.login') }}" class="btn btn-dark text-white">Student
+                                                Log in</a>
+                                        @endauth
+                                    </div>
+                                @endif
+                            </div>
+
 
                         </li>
 
@@ -63,7 +80,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-attachment: fixed;">
                 <img src="/images/carousalbg-3.jpg" class=" w-100 carousal_img" style="" alt="...">
-                <div class="carousel-caption d-none d-md-block" style="top:40%;margin-left:-600px;font-weight:600;">
+                <div class="carousel-caption d-none d-md-block car-cap">
                     <h5 style="font-size: 65px;">Learn Coding</h5>
                     <p>Built Your Dream </p>
                 </div>
@@ -92,50 +109,77 @@
         <figure class="text-center">
             <h1 class="mt-4" style="font-weight:700; color:black;">EXPLORE COURSES</h1>
         </figure>
+<<<<<<< HEAD
         {{-- <div class="cards ">
             <div class="row card-row-1 m">
                 <div class="col-md-6 card course" style="width: 18rem;">
                     <img src="/images/htmlcsslogo.png" class="card-img-top" alt="">
                     <div class="card-body">
                         <h2 class="card-text text-center" style="font-weight:600;">HTML CSS</h2>
+=======
+        <div class="container w-100 me-5">
+            <div class="row gy-3 ">
+                <div class="col-md-4 ">
+                    <div class=" card " style="width: 18rem;">
+                        <img src="/images/htmlcsslogo.png" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h2 class="card-text text-center" style="font-weight:600;">HTML CSS</h2>
+                        </div>
+>>>>>>> cc327699f7929b38476999e2419f4ca4cfe98555
                     </div>
                 </div>
-                <br>
-                <div class="col-md-6 card course" style="width: 18rem;">
-                    <img src="/images/clogo.png" class="card-img-top" style="height:200px;" alt="">
-                    <div class="card-body">
-                        <h2 class="card-text text-center " style="font-weight:600;margin-top:-20px;">C</h2>
+
+                <div class="col-md-4">
+                    <div class="card " style="width: 18rem;">
+                        <img src="/images/clogo.png" class="card-img-top" style="height:200px;" alt="">
+                        <div class="card-body">
+                            <h2 class="card-text text-center " style="font-weight:600;margin-top:-20px;">C</h2>
+                        </div>
                     </div>
+
                 </div>
-                <br>
-                <div class="col-md-6 card course" style="width: 18rem;">
-                    <img src="/images/cplogo.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h2 class="card-text text-center" style="font-weight:600;">C++</h2>
+
+                <div class="col-md-4">
+                    <div class=" card " style="width: 18rem;">
+                        <img src="/images/cplogo.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h2 class="card-text text-center" style="font-weight:600;">C++</h2>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
-            <div class="row card-row-1">
-                <div class="col-md-3 card course" style="width: 18rem;">
-                    <img src="/images/javalogo.png" class="card-img-top d-flex " style="height:200px;" alt="">
-                    <div class="card-body">
-                        <h2 class="text-center" style="font-weight:600;">JAVA</h2>
+            <div class="row gy-3 mx-auto mt-4">
+                <div class="col-md-4">
+                    <div class="card " style="width: 18rem;">
+                        <img src="/images/javalogo.png" class="card-img-top d-flex " style="height:200px;"
+                            alt="">
+                        <div class="card-body">
+                            <h2 class="text-center" style="font-weight:600;">JAVA</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 card course" style="width: 18rem;">
-                    <img src="/images/jslogo.png" class="card-img-top mt-4" alt="">
-                    <div class="card-body">
-                        <h2 class="text-center mt-4" style="font-weight:600;">JAVASCRIPT</h2>
 
-                    </div>
                 </div>
-                <div class="col-md-3 card course" style="width: 18rem;">
-                    <img src="/images/pythonlogo.png" class="card-img-top mt-4" alt="">
-                    <div class="card-body">
-                        <h2 class="text-center mt-2" style="font-weight:600;">PYTHON</h2>
+                <div class="col-md-4">
+                    <div class=" card " style="width: 18rem;">
+                        <img src="/images/jslogo.png" class="card-img-top mt-4" alt="">
+                        <div class="card-body">
+                            <h2 class="text-center mt-4" style="font-weight:600;">JAVASCRIPT</h2>
 
+                        </div>
                     </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/images/pythonlogo.png" class="card-img-top mt-4" alt="">
+                        <div class="card-body">
+                            <h2 class="text-center mt-2" style="font-weight:600;">PYTHON</h2>
+
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -144,12 +188,12 @@
         </div> --}}
 
         {{-- card ends --}}
-        <div class="row w-100 d-flex">
+        <div class="row w-100 d-flex mt-4">
             <div class="col-md-6 mainbox mt-4 ms-4" style="padding-left: 80px;padding-top:70px;">
                 <div class="inf">
                     <iconify-icon icon="mdi:hours-24" class="icon"></iconify-icon>CALL US
                 </div>
-                <div class="ph">782407 07689</div>
+                <div class="ph">82407 07689</div>
                 <div class="inf">
                     <iconify-icon icon="material-symbols:location-on" class="icon"></iconify-icon>LOCATION
                 </div>
@@ -166,7 +210,8 @@
                 <div><input type="text" placeholder=" Your Name"class="text"></div>
                 <div><input type="text" class="text"placeholder="Email Address"></div>
                 <div><input type="text"class=" txtbox" placeholder="Review"></div>
-                <button class="btn btn-dark mt-4 w-100">Submit</button>
+                <button class="btn mt-4 w-100 text-white"
+                    style="background-color: rgba(0, 49, 9, 0.877);">Submit</button>
             </div>
 
         </div>
@@ -175,7 +220,7 @@
                 <div class="row gy-4">
                     <div class="col-lg-5 col-md-12 footer-info">
                         <a href="" class="logo d-flex align-items-center fw-bold  fs-2"
-                            style="color:#494949;">
+                            style="color:#267f00;">
                             Wish Computer Centre
                         </a>
                         <p class="text-grey">Coding is the language of the future, and everybody should learn it.</p>
