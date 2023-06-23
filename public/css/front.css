@@ -1,11 +1,22 @@
-* {
-    font-family: Arial, Helvetica, sans-serif;
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
 }
+
+
+
 
 .main {
-    background: #e8ffe4;
+    background: #000341;
 }
-
+/* h1 {
+    font-size: 72px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+ */
 .carousal-caption {
     bottom: 220px;
     z-index: 2;
@@ -33,7 +44,103 @@
 .card-row-1 {
     margin: 20px auto;
 }
+html {
+	box-sizing: border-box;
+	font-family: "Nothing You Could Do";
+}
 
+
+
+.heading {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin: 2vmin 3vmin;
+	color: #999;
+}
+
+.p-card-container {
+	position: relative;
+	width: 65vmin;
+	height: 100px;
+}
+
+.p-cards {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80%;
+	height: 100%;
+	background-color: darken(white, 2%);
+	border-radius: 2px;
+	box-shadow: 2px 2px 5px rgba(#111, .35);
+	transition: transform .35s ease-out;
+	transform: translate(var(--x), var(--y)) scale(.35) rotate(var(--angle));
+	will-change: transform;
+   display: inline-block;
+   
+
+	&:hover {
+		transform: scale(1) rotate(0deg);
+		z-index: 1;
+
+		&:before {
+			opacity: 1;
+		}
+	}
+}
+
+.p-cards:before {
+	content: "";
+	display: block;
+	width: 90%;
+	height: 80%;
+	margin: 5%;
+	background: var(--image) center center no-repeat;
+	background-size: cover;
+	box-shadow: inset 0 0 5px rgba(#222, .35);
+	border-radius: 2px;
+	filter: sepia(.2) brightness(.9) contrast(1.2);
+	transition: opacity .35s ease-out;
+	opacity: .5;
+	will-change: opacity;
+}
+
+.p-cards:after {
+	display: block;
+	content: var(--caption);
+	font-weight: 500;
+	color: #555;
+	font-size: 3vmin;
+	opacity: .75;
+	text-align: center;
+}
+.polaroid  {
+    background: #ffffff;
+    display: inline-block;
+    padding: 65px ;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    -webkit-transition: all .20s linear;
+    -moz-transition: all .20s linear;
+    transition: all .20s linear;
+    z-index: 0;
+    position: relative;
+  }
+  .polaroid:after {
+    color: #333;
+    font-size: 25px;
+    content: attr(title);
+    position: relative;
+    top: 15px;
+  }
+  .polaroid img {
+    display: block;
+    width: 250px;
+  }
 
 .carousal_img {
     left: 0;
@@ -50,10 +157,10 @@
 }
 
 .mainbox {
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255, 0);
     height: 450px;
-    background-color: rgba(0, 49, 9, 0.877);
-    margin-top: 55px;
+    background-color: #ff676f;
+    
 }
 
 .sec-box {
@@ -148,6 +255,54 @@
     background-position: 80% 10%;
     background-repeat: no-repeat;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+
+
+
+.card-header{
+  height: 200px;
+  width: 100%;
+  background: red;
+  border-radius: 20px !important;
+  display: grid;
+  place-items: center;
+
+}
+
+.card-header i{
+  color: #fff;
+  font-size: 72px;
+}
+.card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+}
+.card-title{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+}
+.card-text{
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.card{
+    padding: 10px !important;
+    margin: 40px !important;
+}
+.card-header.one{
+    
+    background: rgb(8,0,147);
+    background: linear-gradient(286deg, rgb(13, 2, 207) 0%, #ff676f 43%, rgba(255,89,89,1) 66%, rgba(255,60,60,1) 100%);}
+
 
 @media only screen and (max-width: 600px) {
     .main {
