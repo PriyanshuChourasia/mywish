@@ -117,7 +117,7 @@
                     <div class="col-md-6 position-relative mb-5 d-flex justify-content-center">
                         <div class=" ">
     
-                            <h1 style="" class="animate-charcter">
+                            <h1 style="font-weight:900; font-size:55px; " class="animate-charcter">
                                 Welcome To Wish
                             </h1>
                             <p class="text-center " style="font-weight:500;color:#ff5f50; font-size:25px; ">Just one step
