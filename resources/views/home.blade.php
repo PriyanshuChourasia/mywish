@@ -152,7 +152,7 @@
             </div>
         </div> --}}
 
-        <section>
+        <section style="padding-top:60px; padding-bottom:80px">
             <div class="container-fluid mt-5 mb-5 ">
                 <div class="row  align-items-center">
                     <div class="col-md-6 position-relative mb-5 d-flex justify-content-center">
@@ -170,8 +170,10 @@
                     </div>
                     <div class="col-md-6 ">
                         <div>
-                            <img src="/images/pol-bg.png"
-                                class="welcome-img img-responsive img-fluid position-relative">
+
+                            <marquee behavior="slide" scrollamount="5" width="80%" class="text-white fs-3 fw-bold" direction="left">Code is like humor. When you have to explain it, it's bad.</marquee>
+                            {{-- <img src="/images/pol-bg.png"
+                                class="welcome-img img-responsive img-fluid position-relative"> --}}
 
 
                         </div>
