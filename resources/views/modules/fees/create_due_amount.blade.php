@@ -22,9 +22,51 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Due Amount</label>
+                            <input type="text" name="due_amount" id="due_amount" class="form-control" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="{{_('Pay Dues')}}" class="btn btn-warning" id="due_register">
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+
+<script>
+
+    $(document).ready(function(){
+        $('#register_due').on('submit', function(e){
+            e.preventDefault();
+
+            $('#due_register').val('Please wait....');
+            $('#due_register').prop('disabled', true);
+            
+            var formData = new FormData(this);
+            
+            $.ajax({
+                url:"",
+                type:"POST",
+                processData:false,
+                contentType: false,
+                data:formData,
+                success:function(data)
+                {
+                    if(data.status === 400)
+                    {
+
+                    }else if(data.status === 200)
+                    {
+                        $('#modal-popup').modal('hide');
+                        window.location.reload(true);
+                    }
+                }
+            });
+        });
+    });
+</script>

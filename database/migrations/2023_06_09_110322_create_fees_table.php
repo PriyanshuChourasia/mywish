@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('next_fees_date')->nullable();
             $table->string('status')->nullable();
             $table->string('due_amount')->nullable();
+            $table->date('due_paid_date')->nullable();
             $table->string('payment_image')->nullable();
             $table->softDeletes();
             $table->timestamps();
