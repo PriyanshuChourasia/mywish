@@ -128,9 +128,10 @@
                     </div>
                     <div class="col-md-6 ">
                         <div >
-                            <img src="/images/pol-bg.png" class="welcome-img img-responsive img-fluid" >
-
-                        </div>
+                            <img src="/images/pol-bg.png" class="welcome-img img-responsive img-fluid position-relative" >
+                           
+                            
+                        </div> 
                     </div>
                 </div>
             </div>
