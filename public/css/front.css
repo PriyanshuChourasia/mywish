@@ -79,7 +79,7 @@ html {
   -webkit-text-fill-color: transparent;
   animation: textclip 4s linear infinite;
   display: inline-block;
-      font-size: 190px;
+    
 }
 
 @keyframes textclip {
@@ -104,7 +104,7 @@ html {
    display: inline-block;
    
 
-	&:hover {
+	.p-cards:hover {
 		transform: scale(1) rotate(0deg);
 		z-index: 1;
 
