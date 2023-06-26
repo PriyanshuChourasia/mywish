@@ -23,69 +23,6 @@
 <body>
 
     <div class=" main">
-<<<<<<< HEAD
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container ">
-                {{-- <div>
-                    <a href="/"><img src="/images/wishlogo.png" style="width:120px;height:70px;"
-                            alt=""></a>
-                </div> --}}
-                <a class="navbar-brand fw-bold " style="font-size: 32px;color:#ff5f50;" href="#">WISH</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item ">
-                            <a class="nav-link active text-danger" aria-current="page" href="/">Home</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link active text-danger" aria-current="page" href="/">About</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <div class="nav-item">
-                                @if (Route::has('admin.login'))
-                                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-                                        @auth('admin')
-                                            <a href="{{ route('admin.dashboard') }}">Admin
-                                                Dashboard</a>
-                                        @else
-                                            <a href="{{ route('admin.login') }}" class="btn "
-                                                style="border:3px solid #ff676f !important;font-weight: 500;color:#ff676f;">Admin
-                                                Log in</a>
-                                        @endauth
-                                    </div>
-                                @endif
-                            </div>
-                        </li>
-                        <li class="nav-item">
-
-                            <div class="nav-item ms-2">
-                                @if (Route::has('student.login'))
-                                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-                                        @auth('student')
-                                            <a href="{{ route('student.dashboard') }}" class="btn btn-success">Student
-                                                Dashboard</a>
-                                        @else
-                                            <a href="{{ route('student.login') }}" class="btn btn-dark text-white">Student
-                                                Log in</a>
-                                        @endauth
-                                    </div>
-                                @endif
-                            </div>
-
-
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-=======
->>>>>>> 06d49589fb106751e2e89c53ddbcb849e0c23524
         {{-- carousal starts --}}
         <section>
             <div class="carousel-inner">
@@ -402,62 +339,9 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-        <footer id="footer" class="footer mt-5 bg-black">
-            <div class="container" id="footer">
-                <div class="row gy-4">
-                    <div class="col-lg-5 col-md-12 footer-info">
-                        <a href="" class=" text-decoration-none logo d-flex align-items-center fw-bold  fs-2"
-                            style="color:#ffffff;">
-                            Wish Computer Centre
-                        </a>
-                        <p class="text-white">Coding is the language of the future, and everybody should learn it.</p>
-
-                    </div>
-                    <div class="col-lg-3 col-md-6 footer_links">
-                        <h3 class="fs-5  text-center position-relative pb-3" style="color:#ffffff;">Main Links</h3>
-                        <ul class="text-center text-white" style="list-style: none">
-                            <li><a href="" class="text-white text-decoration-none">Home</a></li>
-                            <li><a href="" class="text-white text-decoration-none">About</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4 col-md-6 text-center text-md-start">
-                        <h3 class="fs-4  text-center position-relative pb-3" style="color:#ffffff;">Contact Us</h3>
-                        <p class="text-center " style="color:#ffffff;">
-                            Sameer Ram
-                            <br>
-                            Baguiati, jyangra
-                        </p>
-                    </div>
-
-                </div>
-                <div class="social_links d-flex mt-4 m-auto">
-                    <div class="col-md-6">
-                        <a href="https://www.facebook.com/samir.ram1?mibextid=ZbWKwL" class="facebook ">
-                            <i class="fa-brands fa-3x fa-facebook"></i> </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="https://instagram.com/samirram007?igshid=MzRlODBiNWFlZA==" class="instagram">
-                            <i class="fa-brands fa-3x fa-instagram"></i></a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="https://wa.me/8240504123 " class="whatsapp ">
-                            <i class="fa-brands fa-3x fa-whatsapp"></i> </a>
-                    </div>
-                </div>
-
-                <div class="container mt-4 py-3 pb-5">
-                    <div class="copyright text-center text-white ">
-                        "@Copyright" <strong>Wish</strong>".All rights are Reserved by WISH"
-                    </div>
-                </div>
-            </div>
-        </footer>
-=======
     </footer>
 
 </section>
->>>>>>> 06d49589fb106751e2e89c53ddbcb849e0c23524
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
