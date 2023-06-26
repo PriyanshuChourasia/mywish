@@ -12,13 +12,13 @@ body {
 .container-fluid {
     height: 100%;
     overflow-y: hidden;
-    /* don't show content that exceeds my height */
-}
 
-.whole {
-    background: rgb(186, 255, 203);
-    background: linear-gradient(90deg, rgba(186, 255, 203, 1) 3%, rgba(144, 251, 83, 1) 25%, rgba(121, 234, 74, 1) 59%, rgba(43, 180, 127, 1) 100%);
-}
+        background-image: url("/images/laptop2.jpg") !important;
+        background-repeat: no-repeat !important;
+        background-size: 100% !important;
+    
+    }
+
 
 .log-btn {
     background: rgb(186, 255, 203);
@@ -31,9 +31,10 @@ body {
 }
 
 .main {
+    width: 600px;
     border: 0.5px solid rgb(110, 255, 62);
     border-radius: 5px;
-    background-color: rgba(224, 255, 206, 0.758);
+    background-color: rgba(224, 255, 206, 0.33);
 
 }
 
@@ -45,7 +46,7 @@ body {
 }
 
 .form-control:focus {
-    border: 2px solid #FF0000;
+    border: 2px solid #FF0000 ;
     box-shadow: inset 0 1px 1px rgba(22, 74, 0, 0.875), 0 0 8px rgba(0, 106, 16, 0.6) !important;
 }
 
@@ -54,13 +55,9 @@ body {
     margin-left: -10px;
 
 }
-.box1{
-    width: 50%;
+.head{
+    font-weight: 700 !important;
 }
-.box-2{
-    width: 50%;
-}
-
 @media only screen and (max-width: 1000px) {
     .box-1 {
         width: 100% !important;
