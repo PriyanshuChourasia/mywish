@@ -2,7 +2,7 @@
     <!-- Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library -->
     <li class="nav-item">
-      <a href="{{route('admin.dashboard')}}" class="nav-link active">
+      <a href="{{route('admin.dashboard')}}" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
           Dashboard
@@ -37,10 +37,26 @@
       <a href="{{route('admin.subject_index')}}" class="nav-link">
         <i class="nav-icon fas fa-book"></i>
         <p>
-          Students Subject
+          Subject
         </p>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="{{route('admin.subject_select_index')}}" class="nav-link">
+        <i class="bi bi-book-fill pr-2" style="font-size: 20px"></i>
+        <p>
+          Select Subject
+        </p>
+      </a>
+    </li>
+    {{-- <li class="nav-item">
+      <a href="{{route('admin.course_index')}}" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
+        <p>
+          Course Selection
+        </p>
+      </a>
+    </li> --}}
     <li class="nav-item">
       <a href="{{route('admin.attendance_index')}}" class="nav-link">
         <i class="bi bi-clipboard-check pr-2" style="font-size: 20px"></i>
@@ -50,11 +66,19 @@
       </a>
     </li>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a href="{{route('admin.routine_index')}}" class="nav-link">
         <i class="bi bi-card-list pr-2" style="font-size: 20px"></i>
         <p>
           Routine setup
+        </p>
+      </a>
+    </li> --}}
+    <li class="nav-item">
+      <a href="{{route('admin.fees_index')}}" class="nav-link">
+        <i class="bi bi-cash-coin pr-2" style="font-size: 20px"></i>
+        <p>
+          {{__('Fees')}}
         </p>
       </a>
     </li>

@@ -36,8 +36,6 @@ class SubjectController extends Controller
         $validator = Validator::make($request->all(),[
             'subject_name' => 'required|string',
             'fees'=> 'required|max:6',
-            'duration' => 'required',
-            'description'=> '',
         ]);
 
         if($validator->fails())
@@ -50,9 +48,6 @@ class SubjectController extends Controller
             $subject = new Subject();
             $subject->subject_name = $request->subject_name;
             $subject->fees = $request->fees;
-            $subject->duration = $request->duration;
-            $subject->description = $request->description;
-
             $subject->save();
             $data['collections'] = Subject::all();
             return response()->json([
@@ -76,7 +71,11 @@ class SubjectController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['subject'] = Subject::find($id);
+        return response()->json([
+            'status' => 200,
+            'html' => view('modules.subject.edit_subject',$data)->render()
+        ]);
     }
 
     /**
@@ -84,7 +83,33 @@ class SubjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $subject = Subject::find($id);
+        $validator = Validator::make($request->all(),[
+            'subject_name' => 'required|string',
+            'fees'=> 'required|max:6',
+        ]);
+
+
+        if($validator->fails())
+        {
+            return response()->json([
+                'status' => 400,
+                'messages' => $validator->getMessageBag()
+            ]);
+        }else{
+            $subject->subject_name = $request->subject_name;
+            $subject->fees = $request->fees;
+            $subject->save();
+
+            $data['collections'] = Subject::all();
+            return response()->json([
+                'status' => 200,
+                'html' => view('modules.subject.subject_index',$data)->render(),
+                'messages' => 'Subject Edited Successfully'
+            ]);
+        }
+        
+
     }
 
     /**

@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Fees;
 use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Models\SubjectSelect;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Validator;
 
 
 class StudentController extends Controller
@@ -22,7 +24,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $data['collections'] = Student::all();
+        $data['collections'] = Student::where('status','active')->get();
         return view('modules.student.student_index',$data);
     }
 
@@ -51,10 +53,10 @@ class StudentController extends Controller
             'password'=> '',
             'contact_no' => 'required|string|min:10|max:12',
             'alt_contact' => 'required|string|min:10|max:12',
+            'parents_name' => 'required',
             'gender'=> 'required',
             'address'=> 'required',
-            'subject_id'=> 'required',
-            'student_class'=> 'required',
+            'education'=> 'required',
             'profile_image'=> '',
             'document_image'=> '',
         ]);
@@ -73,9 +75,9 @@ class StudentController extends Controller
             $student->contact_no = $request->contact_no;
             $student->alt_contact = $request->alt_contact;
             $student->gender = $request->gender;
+            $student->parents_name = $request->parents_name;
             $student->address = $request->address;
-            $student->subject_id = $request->subject_id;
-            $student->student_class = $request->student_class;
+            $student->education = $request->education;
             if ($request->hasFile('profile_image')) {
                 $file = $request->file('profile_image');
                 $extention = $file->getClientOriginalExtension();
@@ -92,7 +94,7 @@ class StudentController extends Controller
             };
             event(new Registered($student));
             $student->save();
-            $data['collections'] = Student::all();
+            $data['collections'] = Student::where('status','active')->get();
             $html = view('modules.student.student_index',$data)->render();
             return response()->json([
                 'status' => 200,
@@ -118,7 +120,6 @@ class StudentController extends Controller
     {
         $data['student'] = Student::find($id);
         $data['genders'] = $this->gender;
-        $data['subjects'] = Subject::all();
         $data['student_classes'] = $this->student_class;
         return response()->json([
             'status' => 200,
@@ -139,9 +140,9 @@ class StudentController extends Controller
             'contact_no' => 'required|string|min:10|max:12',
             'alt_contact' => 'required|string|min:10|max:12',
             'gender'=> 'required',
+            'parents_name' => 'required',
             'address'=> 'required',
-            'subject_id'=> 'required',
-            'student_class'=> 'required',
+            'education'=> 'required',
             'profile_image'=> '',
             'document_image'=> '',
         ]);
@@ -159,9 +160,9 @@ class StudentController extends Controller
             $student->contact_no = $request->contact_no;
             $student->alt_contact = $request->alt_contact;
             $student->gender = $request->gender;
+            $student->parents_name = $request->parents_name;
             $student->address = $request->address;
-            $student->subject_id = $request->subject_id;
-            $student->student_class = $request->student_class;
+            $student->education = $request->education;
             if ($request->hasFile('profile_image')) {
                 $destination = 'uploads/student/profile_image'.$student->profile_image;
                 if(File::exists($destination))
@@ -187,7 +188,7 @@ class StudentController extends Controller
                 $student->document_image = $filename;
             };
             $student->update();
-            $data['collections'] = Student::all();
+            $data['collections'] = Student::where('status','active')->get();
             return response()->json([
                 'status'=> 200,
                 'messages' => 'Student Data Updated Successfully',
@@ -196,14 +197,47 @@ class StudentController extends Controller
         }
     }
 
+    public function createDelete($id)
+    {
+        $student = Student::find($id);
+        return response()->json([
+            'status' => 200,
+            'html' => view('modules.student.student_delete',compact('student'))->render()
+        ]);
+    }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, Request $request)
+    // public function destroy(string $id, Request $request)
+    // {
+    //     $student = Student::find($id);
+    // //    dd($student);
+    //     $student->delete();
+    //    return redirect()->route('admin.student_index');
+    // }
+
+
+    public function banCreate(Request $request, $id)
     {
         $student = Student::find($id);
-    //    dd($student);
-        $student->delete();
-       return redirect()->route('admin.student_index');
+        return response()->json([
+            'status' => 200,
+            'html' => view('modules.student.student_ban',compact('student'))->render()
+        ]);
+    }
+
+
+    public function destroy($id)
+    {
+ 
+        // $student = Student::find($id);
+        // $student->delete(); 
+
+        $data['collections'] = Student::where('status','active')->get();
+        return response()->json([
+            'status' => 200,
+            'html' => view('modules.student.student_index',$data)->render()
+        ]);
+
     }
 }

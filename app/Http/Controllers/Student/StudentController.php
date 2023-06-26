@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Student;
 
-use App\Http\Controllers\Controller;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
@@ -15,6 +19,25 @@ class StudentController extends Controller
         return view('student.dashboard');
     }
 
+
+    public function profile()
+    {
+        $user = Auth::user()->id;
+        $data['student'] = Student::find($user);
+        
+        return view('student.profile.profile_index',$data);
+    }
+
+
+    public function changePassword($id)
+    {
+        // dd($id);
+        $student = Student::find($id);
+        return response()->json([
+            'status' => 200,
+            'html' => view('student.profile.change_password',compact('student'))->render()
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -26,9 +49,29 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'password' => 'required'
+        ]);
+        if($validator->fails())
+        {
+            return response()->json([
+                'status' => 400,
+                'messages' => $validator->getMessageBag()
+            ]);
+        }else{
+            $student = Student::find($id);
+            $student->password = Hash::make( $request->password);
+            $student->save();
+            $user = Auth::user()->id;
+            $data['student'] = Student::find($user);
+            return response()->json([
+                'status' => 200,
+                'html'=> view('student.profile.profile_index',$data)->render()
+            ]);
+        }
+      
     }
 
     /**

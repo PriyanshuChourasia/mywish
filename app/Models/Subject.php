@@ -20,8 +20,6 @@ class Subject extends Authenticatable
     protected $fillable = [
         'subject_name',
         'fees',
-        'duration',
-        'description'
        
     ];
 
@@ -47,5 +45,10 @@ class Subject extends Authenticatable
     public function student()
     {
         return $this->hasMany(Student::class, 'id', 'id');
+    }
+
+    public function course()
+    {
+        return $this->hasOne(Course::class, 'id', 'subject_id');
     }
 }

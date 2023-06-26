@@ -71,4 +71,6 @@ class RoutineGroup extends Authenticatable
     {
         return $this->hasOne(Subject::class, 'id','group_name');
     }
+
+   
 }

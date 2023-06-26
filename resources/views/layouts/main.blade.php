@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src='{{asset("js/wish.js")}}'></script>
+  <link rel="stylesheet" href="{{asset('css/wish.css')}}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -96,6 +97,23 @@
 <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 
 
+<script lang="javascript">
+    $(document).ready(function() {
+        var url = window.location;
+        //  for sidebar only without covering treeview
+        $('ul.nav-sidebar a').filter(function() {
+            if (this.href) {
+                return this.href == url || url.href.indexOf(this.href) == 0;
+            }
+        }).addClass('active');
+
+        $('ul.nav-treeview a').filter(function() {
+            if (this.href) {
+                return this.href == url || url.href.indexOf(this.href) == 0;
+            }
+        }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
+    });
+</script>
     <script type="text/javascript">
         $(function() {
 

@@ -13,6 +13,7 @@
                                 <label for="">Name</label>
                                 <input type="text" name="name" id="name" class="form-control"
                                     placeholder="Enter Name">
+                                    <span class="text-danger" id="name_err"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -20,6 +21,7 @@
                                 <label for="">Email</label>
                                 <input type="email" name="email" id="email" class="form-control"
                                     placeholder="Enter Email">
+                                    <span class="text-danger" id="email_err"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -27,6 +29,7 @@
                                 <label for="">Contact Number</label>
                                 <input type="number" name="contact_no" id="contact_no" class="form-control"
                                     placeholder="Enter Contact Number">
+                                    <span class="text-danger" id="contact_err"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -39,6 +42,7 @@
                                         <option value="{{ $gender }}">{{ $gender }}</option>
                                     @endforeach
                                 </select>
+                                <span class="text-danger" id="gender_err"></span>
                             </div>
                         </div>
                     </div>
@@ -48,37 +52,36 @@
                                 <label for="">Alternate Contact Number</label>
                                 <input type="number" name="alt_contact" id="alt_contact" class="form-control"
                                     placeholder="Enter Alternate Contact Number" value="1234567890">
+                                    <span class="text-danger" id="alt_contact_err"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Address</label>
                                 <input type="text" name="address" id="address" class="form-control"
-                                    placeholder="Enter Address" value="1234567890">
+                                    placeholder="Enter Address" value="Baguiati">
+                                    <span class="text-danger" id="address_err"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Subject</label>
-                                <select class="form-select" required aria-label="Default select example" id="subject_id" name="subject_id"
-                                    id="subject">
-                                    <option selected value="null">Select Subject</option>
-                                    @foreach ($subjects as $subject)
-                                        <option value="{{ $subject->id }}">{{ $subject->subject_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Class</label>
-                                <select class="form-select" aria-label="Default select example" name="student_class"
-                                    id="student_class">
+                                <label for="">Education</label>
+                                <select class="form-select" aria-label="Default select example" name="education"
+                                    id="education">
                                     <option selected value="null">Open this select menu</option>
                                     @foreach ($student_classes as $student_class)
                                         <option value="{{ $student_class }}">{{ $student_class }}</option>
                                     @endforeach
                                 </select>
+                                <span class="text-danger" id="education_err"></span>
+                            </div>
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Gaurdian Name</label>
+                                <input type="text" name="parents_name" id="parents_name" class="form-control" placeholder="Enter Parent Name">
+                                <span class="text-danger" id="parents_name"></span>
                             </div>
                         </div>
                     </div>
@@ -97,10 +100,6 @@
                     </div>
                 </form>
             </div>
-            {{-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div> --}}
         </div>
     </div>
 
@@ -110,13 +109,9 @@
                 e.preventDefault();
 
                 $('#register_btn').val('Please wait.....');
+                $('#register_btn').prop('disabled', true);
 
                 var formData = new FormData(this);
-
-                $('#register_btn').prop('disabled', true);
-              
-          
-
                 $.ajax({
                     url: "{{ route('admin.store_student') }}",
                     type: "POST",
