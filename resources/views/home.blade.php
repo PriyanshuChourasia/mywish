@@ -171,7 +171,7 @@
                     <div class="col-md-6 ">
                         <div>
 
-                            <marquee behavior="slide" scrollamount="5" width="80%" class="text-white fs-3 fw-bold" direction="left">Code is like humor. When you have to explain it, it's bad.</marquee>
+                            <marquee behavior="slide" scrollamount="5"  class="text-white fs-3 fw-bold" direction="left">Code is like humor. When you have to explain it, it's bad.</marquee>
                             {{-- <img src="/images/pol-bg.png"
                                 class="welcome-img img-responsive img-fluid position-relative"> --}}
 
