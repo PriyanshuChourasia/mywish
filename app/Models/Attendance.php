@@ -24,7 +24,10 @@ class Attendance extends Authenticatable
         'student_id',
         'subject_id',
         'appearance',
-        'status'
+        'status',
+        'day_name',
+        'date',
+        'time'
     ];
 
     /**

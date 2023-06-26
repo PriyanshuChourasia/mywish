@@ -36,7 +36,7 @@
                                             <th>SL_No</th>
                                             <th>Name</th>
                                             <th>Subject</th>
-                                            <th>Attendance</th>
+                                            <th>Day</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -46,13 +46,13 @@
                                                 <td>{{ $k + 1 }}</td>
                                                 <td>{{ $item->student->name }}</td>
                                                 <td>{{ $item->subject->subject_name }}</td>
-                                                <td>{{ '0' }}</td>
+                                                <td>{{$item->day_name }}</td>
                                                 <td>
                                                    
                                                       
                                                   
-                                                    <a href="javascript:void(0)" data-url="{{route('admin.create_attendance',$item->student_id)}}"
-                                                    class="btn btn-dark load-popup">{{ __('Go to Attendance') }}</a>
+                                                    {{-- <a href="javascript:void(0)" data-url="{{route('admin.create_attendance',$item->student_id)}}"
+                                                    class="btn btn-dark load-popup">{{ __('Go to Attendance') }}</a> --}}
                                                 </td>
                                             </tr>
                                         @endforeach

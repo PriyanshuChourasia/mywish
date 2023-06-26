@@ -17,8 +17,8 @@ return new class extends Migration
             $table->time('time');
             $table->bigInteger('student_id');
             $table->bigInteger('subject_id');
-            $table->string('day_name');
-            $table->string('appearance')->nullable()->default('0')->comment('1:Present, 0:Absent');
+            $table->string('day_name')->nullable();
+            $table->string('appearance')->nullable()->comment('1:Present, 0:Absent');
             $table->string('status')->comment('1:informed, 0:notinformed')->nullable();
             $table->softDeletes();
             $table->timestamps();

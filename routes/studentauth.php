@@ -32,6 +32,7 @@ Route::middleware('auth:student')->prefix('student')->name('student.')->group(fu
     Route::get('create_subject_select',[SubjectSelectController::class, 'create'])->name('create_subject_select');
     Route::post('save_subject_select',[SubjectSelectController::class, 'store'])->name('save_subject_select');
     Route::get('get_fees/{id}',[SubjectSelectController::class, 'getFees'])->name('get_fees');
+    Route::get('get_permit/{id}',[SubjectSelectController::class, 'getInfo'])->name('get_permit');
   });
 
 

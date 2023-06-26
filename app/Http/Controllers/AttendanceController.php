@@ -20,7 +20,7 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        $data['collections'] = Seat::whereNotNull('student_id')->get()->all();
+        $data['collections'] = Attendance::all();
         return view('modules.attendance.attendance_index',$data);
     }
 
@@ -55,6 +55,9 @@ class AttendanceController extends Controller
             'subject_id' => 'required',
             'appearance' => '',
             'status' => '',
+            'day_name' => 'required',
+            'date' => '',
+            'time' => ''
         ]);
 
         if($validator->fails())
@@ -71,10 +74,12 @@ class AttendanceController extends Controller
             $attendance->subject_id =$request->subject_id;
             $attendance->appearance = $request->appearance;
             $attendance->status = $request->status;
+            $attendance->day_name = $request->day_name;
             $attendance->save();
-
+            $data['collections'] = Attendance::all();
             return response()->json([
                 'status' => 200,
+                'html' => view('modules.attendance.attendance_index',$data)->render(),
                 'messages' => 'Attendance Save Successfully',
             ]);
         }

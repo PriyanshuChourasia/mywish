@@ -77,6 +77,25 @@ class SubjectSelectController extends Controller
         }
     }
 
+
+    public function getInfo($id)
+    {
+        $sub = SubjectSelect::where('student_id','=',$id)->where('status','=','active')->count();
+        if($sub == 0)
+        {
+            return response()->json([
+                'status' => 200,
+                'permit' => $sub
+            ]);
+        }else{
+            return response()->json([
+                'status' => 200,
+                'permit' =>$sub
+            ]);
+        }
+ 
+    }
+
     /**
      * Display the specified resource.
      */

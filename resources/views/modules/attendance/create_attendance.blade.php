@@ -157,7 +157,7 @@
                     } else if (response.status === 200) {
                         toastr.success('Attendance Submitted Successfully');
                         $('#modal-popup').modal('hide');
-                        // window.location.reload();
+                        window.location.reload(true);
                     }
                 }
             });
