@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Fees;
 use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Models\SubjectSelect;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Validator;
 
 
 class StudentController extends Controller
@@ -206,13 +208,13 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, Request $request)
-    {
-        $student = Student::find($id);
-    //    dd($student);
-        $student->delete();
-       return redirect()->route('admin.student_index');
-    }
+    // public function destroy(string $id, Request $request)
+    // {
+    //     $student = Student::find($id);
+    // //    dd($student);
+    //     $student->delete();
+    //    return redirect()->route('admin.student_index');
+    // }
 
 
     public function banCreate(Request $request, $id)
@@ -222,5 +224,20 @@ class StudentController extends Controller
             'status' => 200,
             'html' => view('modules.student.student_ban',compact('student'))->render()
         ]);
+    }
+
+
+    public function destroy($id)
+    {
+ 
+        // $student = Student::find($id);
+        // $student->delete(); 
+
+        $data['collections'] = Student::where('status','active')->get();
+        return response()->json([
+            'status' => 200,
+            'html' => view('modules.student.student_index',$data)->render()
+        ]);
+
     }
 }

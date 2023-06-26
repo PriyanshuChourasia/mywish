@@ -20,7 +20,10 @@ class SubjectSelect extends Authenticatable
     protected $fillable = [
         'subject_id',
         'student_id',
-        'routine_group_id'
+        'routine_group_id',
+        'start_date',
+        'end_date',
+        'status'
        
     ];
 

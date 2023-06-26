@@ -34,29 +34,32 @@
                                     <tr>
                                         <th>SL_No</th>
                                         <th>Student Name</th>
-                                        <th>Monthly</th>
-                                        <th>Contact No</th>
+                                        <th>Registration Date</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @forelse ($collections as $k => $item)
-                                    <tr>
-                                        <td>{{$k+1}}</td>
-                                        <td>{{$item->student->name}}</td>
-                                        <td>{{$item->subject->fees}}</td>
-                                        <td>{{$item->student->contact_no}}</td>
-                                        <td>
-                                            <a href="{{route('admin.fees_card',$item->student_id)}}" class="btn btn-primary">{{__('PROCEED')}}</a>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    
-                                @endforelse
+                                    @forelse ($students as $k =>  $item)
+                                        <tr>
+                                            <td>{{$k+1}}</td>
+                                            <td>{{$item->student->name}}</td>
+                                            <td>{{$item->registration_date}}</td>
+                                            <td>
+                                                @if ($item->subject_id == null)
+                                                    <a href="javascript:void(0)" data-url="{{route('admin.empty_card')}}" class="btn btn-warning load-popup"><i class="bi bi-cash-coin"></i></a>
+                                                @else
+                                                <a href="{{route('admin.fees_card',$item->student_id)}}"  class="btn btn-info"><i class="bi bi-cash-coin"></i></a>
+                                                @endif
+                                                
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        
+                                    @endforelse
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th></th>
+                                     
                                         <th></th>
                                         <th></th>
                                         <th></th>

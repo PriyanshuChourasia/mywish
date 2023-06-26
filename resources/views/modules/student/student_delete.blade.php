@@ -5,7 +5,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div> --}}
         <div class="modal-body">
-            <form action="">
+            <form id="confirm_delete">
                 @csrf
                 <div class="row">
                     <div class="col">
@@ -20,7 +20,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label for=""
-                                class="fs-4">{{ __('Are you sure you want to ban this student?') }}</label>
+                                class="fs-4">{{ __('Are you sure you want to Delete this student?') }}</label>
                         </div>
                     </div>
 
@@ -34,13 +34,43 @@
                 </div>
                 <div>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+                    <input type="submit" value="{{__('Confirm')}}" class="btn btn-success" id="delete_confirm">
                 </div>
             </form>
         </div>
-        {{-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div> --}}
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function(){
+        $('#confirm_delete').on('submit',function(e)
+        {
+            e.preventDefault();
+            
+            $('#delete_confirm').val('Please wait.....');
+            $('#delete_confirm').prop('disabled', true);
+
+            var formData = new FormData(this);
+
+            $.ajax({
+                url:"{{route('admin.destroy_student',$student->id)}}",
+                type:"POST",
+                processData:false,
+                contentType:false,
+                data: formData,
+                success: function(data){
+                    if(data.status === 400)
+                    {
+                        console.log(data);
+                    }else if(data.status === 200)
+                    {
+                        $('#modal-popup').modal('hide');
+                        window.location.reload(true);
+                    }
+                }
+            });
+
+        });
+    });
+</script>

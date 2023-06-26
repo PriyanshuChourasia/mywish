@@ -1,5 +1,4 @@
-@extends('home')
-@section('content')
+
     <div class="container">
         <form method="POST" action="{{ route('student.login') }}">
             @csrf
@@ -19,4 +18,4 @@
             </div>
         </form>
     </div>
-@endsection
+

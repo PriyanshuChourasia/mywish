@@ -8,16 +8,16 @@
                 <form id="register_fees">
                     @csrf
 
-                    <input type="text" name="duration" id="duration" class="sr-only">
+                    
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Select Student</label>
-                                <select class="form-select" aria-label="Default select example" id="students" class="bg-dark text-white" name="student_id">
+                                <select class="form-select" aria-label="Default select example" id="students" class=" text-black" name="student_id" required>
                                     <option value="0">Select Student</option>
-                                    @forelse ($courses as $course)
-                                        <option value="{{ $course->student_id }}">{{ $course->student->name }}</option>
+                                    @forelse ($students as $student)
+                                        <option value="{{ $student->id }}">{{ $student->name }}</option>
                                     @empty
                                         <option value="null">No Students Available</option>
                                     @endforelse
@@ -28,15 +28,15 @@
                             <div class="form-group">
                                 <label for="">Subject ID</label>
                                 <input type="text" name="subject_id" id="subject_id"
-                                    class="form-control bg-black text-white" readonly>
+                                    class="form-control  text-black" readonly>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Paying Date</label>
-                                <input type="date" name="paid_date" id="paid_date" class="form-control"
+                                <label for="">Registration Date</label>
+                                <input type="date" name="registration_date" id="registation_date" class="form-control"
                                     value="<?php echo date('Y-m-d'); ?>">
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label for="">Admission Fees</label>
                                 <input type="number" name="admission_fees" id="admission_fees" class="form-control"
-                                    readonly value="200">
+                                     value="200">
                             </div>
                         </div>
                     </div>
@@ -54,14 +54,14 @@
                             <div class="form-group">
                                 <label for="">Monthly Fees</label>
                                 <input type="text" name="monthly_fees" id="monthly_fees"
-                                    class="form-control bg-dark text-white" readonly>
+                                    class="form-control  text-black" readonly>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Total Amount</label>
                                 <input type="text" name="total_amount" id="total_amount"
-                                    class="form-control bg-dark text-white" readonly>
+                                    class="form-control  text-black" readonly>
                             </div>
                         </div>
                     </div>
@@ -71,23 +71,28 @@
                                 <label for="">Paid Amount</label> <span id="copy_amount"
                                     class="badge badge-primary fs-6"
                                     style="cursor: pointer">{{ __(' Copy Total Amount') }}</span>
-                                <input type="number" name="paid_amount" id="paid_amount" class="form-control">
+                                <input type="number" name="paid_amount" id="paid_amount" class="form-control" required>
 
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Fees Status</label>
-                                <input type="text" name="fees_status" id="fees_status" class="form-control bg-black text-white" value="" readonly>
+                                <label for="">Month</label>
+                                <input type="text" name="month" id="month" class="form-control" value="<?php echo date('F')   ?>" readonly required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Fees Status</label>
+                                <input type="text" name="status" id="fees_status" class="form-control  text-black" value="" readonly>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <label for="">Due Amount</label>
                             <input type="number" name="due_amount" id="due_amount"
-                                class="form-control bg-dark text-white" value="" readonly>
+                                class="form-control  text-black" value="" readonly>
                         </div>
                     </div>
                     <div class="text-center mt-3 mb-3">
@@ -105,7 +110,7 @@
             $('#subject_id').val('select student');
             $('#fees_amount').val('select student');
             $('#monthly_fees').val('select student');
-            $('#total_amount').val('select student')
+            $('#total_amount').val('select student');
             $('#students').change(function(e) {
                 e.preventDefault();
 
@@ -125,7 +130,12 @@
                     contentType: false,
                     processData: false,
                     success: function(data) {
-                        if (data.status == 200) {
+                        if(data.status === 400)
+                        {
+                            $('#fees_register').val('No Subject Selected Till Now');
+                            $('#fees_register').prop('disabled',true);
+                        }else if(data.status === 200)
+                        {
                             var sub_id = data.sub;
                             var fee_amount = data.amount;
                             $('#subject_id').val(sub_id);
@@ -136,10 +146,7 @@
                             var sum = Number(num1) + Number(num2);
                             $('#total_amount').val(sum);
                             $('#duration').val(data.duration);
-                        } else {
-
                         }
-
                     }
                 });
             });
@@ -181,6 +188,20 @@
                 }
                
                
+            });
+
+            $('#admission_fees').on('keyup', function(e){
+                e.preventDefault();
+                var num1 = $('#admission_fees').val();
+                var num2 = $('#monthly_fees').val();
+                if(num1 < 0 || num1 == 0 )
+                {
+                    $('#admission_fees').val('');
+                    $('#total_amount').val(num2);
+                }
+                
+                var sum = Number(num1) + Number(num2);
+                $('#total_amount').val(sum);
             });
             
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{{env('APP_NAME')}}</title>
     <link rel="stylesheet" href="{{ asset('css/front.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -24,11 +24,11 @@
 
     <div class=" main">
         <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid ">
-                <div>
+            <div class="container ">
+                {{-- <div>
                     <a href="/"><img src="/images/wishlogo.png" style="width:120px;height:70px;"
                             alt=""></a>
-                </div>
+                </div> --}}
                 <a class="navbar-brand fw-bold " style="font-size: 32px;color:#ff5f50;" href="#">WISH</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -259,11 +259,11 @@
             </div>
 
         </div>
-        <footer id="footer" class="footer " style="background-color:#ff887d; margin-top:180px;">
+        <footer id="footer" class="footer mt-5 bg-black">
             <div class="container" id="footer">
                 <div class="row gy-4">
                     <div class="col-lg-5 col-md-12 footer-info">
-                        <a href="" class="logo d-flex align-items-center fw-bold  fs-2"
+                        <a href="" class=" text-decoration-none logo d-flex align-items-center fw-bold  fs-2"
                             style="color:#ffffff;">
                             Wish Computer Centre
                         </a>
@@ -272,9 +272,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6 footer_links">
                         <h3 class="fs-5  text-center position-relative pb-3" style="color:#ffffff;">Main Links</h3>
-                        <ul class="text-center text-white">
-                            <li><a href="" class="text-white">Home</a></li>
-                            <li><a href="" class="text-white">About</a></li>
+                        <ul class="text-center text-white" style="list-style: none">
+                            <li><a href="" class="text-white text-decoration-none">Home</a></li>
+                            <li><a href="" class="text-white text-decoration-none">About</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 col-md-6 text-center text-md-start">
@@ -303,7 +303,7 @@
                 </div>
 
                 <div class="container mt-4 py-3 pb-5">
-                    <div class="copyright text-center ">
+                    <div class="copyright text-center text-white ">
                         "@Copyright" <strong>Wish</strong>".All rights are Reserved by WISH"
                     </div>
                 </div>

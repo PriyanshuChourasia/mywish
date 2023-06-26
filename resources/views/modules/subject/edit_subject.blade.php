@@ -11,7 +11,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="">Subject Name</label>
-                            <input type="text" name="subject_name" id="subject_name" class="form-control" value="{{$subject->subject_name}}">
+                            <input type="text" name="subject_name" id="subject_name" readonly class="form-control" value="{{$subject->subject_name}}">
                         </div>
                     </div>
                     <div class="col-12">

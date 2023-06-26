@@ -11,33 +11,35 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Student ID</label>
-                            <input type="text" name="" id="" readonly
-                                value="{{ $fees_id->student_id }}" class="form-control bg-black text-white">
+                            <input type="text" name="student_id" id="student_id" readonly
+                                value="{{ $fees_id->student_id }}" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">Monthly Fees</label>
-                            <input type="text" name="" id="monthly_fees" readonly
-                                value="{{ $fees_id->monthly_fees }}" class="form-control bg-black text-white">
-                        </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Subject ID</label>
+                        <input type="text" name="subject_id" id="subject_id" class="form-control" readonly>
                     </div>
+                </div>
+                
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">Paying Date</label>
-                            <input type="date" name="paid_date" id="paid_date" class="form-control"
-                                value="<?php echo date('Y-m-d'); ?>">
+                            <label for="">Monthly Fees</label>
+                            <input type="text" name="monthly_fees" id="monthly_fees" readonly
+                                value="" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">Payment Date</label>
+                            <label for="">Paid Date</label>
                             <input type="date" name="paid_date" id="paid_date" class="form-control"
-                                value="{{ $fees_id->next_fees_date }}">
+                                value="<?php echo date('Y-m-d'); ?>">
                         </div>
                     </div>
+
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -45,26 +47,32 @@
                             <label for="">Paying Amount</label> <span id="copy_amount"
                                 class="badge badge-primary fs-6"
                                 style="cursor: pointer">{{ __(' Copy Monthly Fees') }}</span>
-                            <input type="text" name="paid_amount" id="paid_amount" class="form-control">
+                            <input type="text" name="paid_amount" id="paid_amount" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">Fees Status</label>
-                            <input type="text" name="fees_status" id="fees_status"
-                                class="form-control bg-black text-white" value="" readonly>
+                            <label for="">Month</label>
+                            <input type="text" name="month" readonly required id="month" class="form-control" value="<?php echo date('F')  ?>">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Fees Status</label>
+                            <input type="text" name="status" id="fees_status"
+                                class="form-control " value="" required readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                         <label for="">Due Amount</label>
-                        <input type="number" name="due_amount" id="due_amount" class="form-control bg-dark text-white"
+                        <input type="number" name="due_amount" id="due_amount" class="form-control"
                             value="" readonly>
                     </div>
                 </div>
                 <div class="text-center mt-3 mb-3">
-                    <input type="submit" value="{{ __('PAY') }}" class="btn btn-primary w-100" id="payment_fees">
+                    <input type="submit" value="{{ __('Confirm Payment') }}" class="btn btn-primary w-100" id="payment_fees">
                 </div>
             </form>
         </div>
@@ -73,6 +81,29 @@
 
 
 <script>
+
+    $(function(){
+        var stu_id = $('#student_id').val()
+        // alert(stu_id);
+
+        $.ajax({
+            url:"/admin/modules/fees/get_subs/"+stu_id,
+            type:"GET",
+            processData: false,
+            contentType: false,
+            success: function(data)
+            {
+                $('#subject_id').val(data.sub);
+                $('#monthly_fees').val(data.amount);
+            }
+        });
+
+    });
+
+
+
+
+
     $(document).ready(function() {
         $('#copy_amount').on('click', function(e) {
             e.preventDefault();
@@ -82,11 +113,17 @@
                 $('#fees_status').val('paid');
         });
 
-        $('#paid_amount').on('keyup', function() {
-
+        $('#paid_amount').on('keyup', function(e) {
+            e.preventDefault();
 
             var num1 = $('#paid_amount').val();
             var num2 = $('#monthly_fees').val();
+            if(num1 < 0)
+            {
+                $('#paid_amount').val(num2);
+                $('#due_amount').val('0');
+                $('#fees_status').val('paid');
+            }
             var diff = Number(num2) - Number(num1);
             var ch = $('#due_amount').val(diff);
             if (diff == '0') {
@@ -95,7 +132,7 @@
             if (diff != 0) {
                 $('#fees_status').val('due');
             }
-            if (diff <= 0) {
+            if (diff < 0) {
                 $('#paid_amount').val(num2);
                 $('#due_amount').val(0);
                 $('#fees_status').val('paid');
@@ -106,14 +143,14 @@
         });
 
         $('#fees_payment').on("submit",function(e){
-
+            e.preventDefault();
             $('#payment_fees').val('Please wait.........');
             $('#payment_fees').prop('disabled',true);
 
             var formData = new FormData(this);
 
             $.ajax({
-                url:"",
+                url:"{{route('admin.fee_paid',$fees_id->id)}}",
                 type:"POST",
                 data: formData,
                 processData:false,
@@ -125,7 +162,8 @@
 
                     }else if(data.status === 200)
                     {
-                        
+                        $('#modal-popup').modal('hide');
+                        window.location.reload(true);
                     }
                 }
             });

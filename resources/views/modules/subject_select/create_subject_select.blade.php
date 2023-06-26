@@ -21,7 +21,7 @@
                               </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" id="sub_status">
                         <div class="form-group">
                             <label for="">Subject Name</label>
                             <select class="form-select" aria-label="Default select example" name="subject_id" id="subject_id">
@@ -35,18 +35,25 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="row">
-                    <div class="col-12">
-                        <label for="">Select Routine</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
+                <div id="data_box" >
+                    <div class="row mt-4" >
+                        <div class="col-md-6" >
+                            <div class="form-group">
+                                <input type="text" name="" id="subject_id_box" class="form-control text-black fw-bold" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="" id="status_box" class="form-control text-success fw-bold" value="">
+                            </div>
+                        </div>
                     </div>
-                </div> --}}
-                <div class="text-center">
+                    <div class="row">
+                        <span class="text-danger">You have to complete your running course</span>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
                     <input type="submit" value="{{__('Save Selection')}}" id="subject_select_register" class="btn btn-success">
                 </div>
             </form>
@@ -56,7 +63,52 @@
 
 
 <script>
+
+    $(function(){
+        $('#data_box').hide();
+    });
+    
     $(document).ready(function(){
+        $('#student_id').change(function(e){
+            e.preventDefault();
+
+            var id = $(this).val();
+          
+         
+
+
+            $.ajax({
+                url:'/admin/modules/subject_select/get_sub/'+id,
+                type:"GET",
+                contentType: false,
+                processData: false,
+                success: function(data){
+                    $('#data_box').hide();
+                    if(data.sub_name != null)
+                    {
+                        $('#sub_status').hide();
+                        $('#date_status').hide();
+                        $('#subject_id_box').val(data.sub_name);
+                        if(data.status == 1)
+                        {
+                            $('#status_box').val('Active');
+                        }
+                        $('#data_box').show();
+                        $('#subject_select_register').prop('disabled',true);
+                        $('#subject_select_register').val('Cannot be Submitted');
+                    }else{
+                        $('#data_box').hide();
+                        $('#sub_status').show();
+                        $('#date_status').show();
+                        $('#subject_select_register').prop('disabled',false);
+                        $('#subject_select_register').val('Save Selection');
+                        $('#subject_id_box').val();
+                        $('#status_box').val();
+                    }
+                }
+
+            });
+        });
         $('#register_subject_select').on('submit', function(e){
             e.preventDefault();
             
@@ -82,7 +134,7 @@
                         console.log(data);
                     }else if(data.status === 200)
                     {
-                        $('#modal').modal('hide');
+                        $('#modal-popup').modal('hide');
                         window.location.reload(true);
                     }
                 }

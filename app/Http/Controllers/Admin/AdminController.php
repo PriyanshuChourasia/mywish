@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Student;
+use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
@@ -12,7 +14,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $students = Student::all()->count();
+        $subjects = Subject::all()->count();
+        return view('admin.dashboard',compact('students','subjects'));
     }
 
     /**

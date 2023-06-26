@@ -45,10 +45,24 @@
                                                 <th>{{$k+1}}</th>
                                                 <th>{{$item->student->name}}</th>
                                                 <th>{{$item->subject->subject_name}}</th>
-                                                @if ($item->status == 1)
-                                                    <th><span class="badge badge-success">Active</span></th>
-                                                @endif
-                                                <th></th>
+                                                <th>
+                                                    @if ($item->status == 'requested')
+                                                        <span class="badge badge-warning">Requested</span>
+                                                    @else
+                                                        @if ($item->status == 'active')
+                                                            <span class="badge badge-success">Running</span>
+                                                        @endif
+                                                    @endif
+                                                </th>
+                                                <th>
+                                                    @if ($item->status == 'requested' || $item->status == null)
+                                                    <a href="javascript:void(0)" data-url="{{route('admin.change_status',$item->id)}}" class="btn btn-warning load-popup"><i class="bi bi-person-fill-check"></i></a>
+                                                    @else
+                                                  
+                                                        <a href="javasxcript:void(0)" data-url="{{route('admin.complete_status',$item->id)}}" class="btn btn-info load-popup"><i class="bi bi-person-check-fill"></i></a>
+                                                    @endif
+                                                    
+                                                </th>
                                             </tr>
                                         @empty
                                             

@@ -5,7 +5,7 @@
             <div class="container-fluid">
               <div class="row mb-2">
                 <div class="col-sm-6">
-                  <h1 class="m-0">Seat Booking</h1>
+                  <h1 class="m-0">{{__('')}}</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                   <ol class="breadcrumb float-sm-right">
@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h1 class="  float-right"><a href="javascript:void(0)" data-url="{{route('student.book_seat')}}" class="btn btn-outline-info load-popup">Book a Seat</a></h1>
+                                    <h1 class="  float-right"><a href="javascript:void(0)" data-url="{{route('student.book_seat')}}" class="btn btn-outline-info load-popup">{{__('Register Seat')}}</a></h1>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">

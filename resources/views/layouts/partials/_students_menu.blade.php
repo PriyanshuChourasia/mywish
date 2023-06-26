@@ -2,26 +2,27 @@
     <!-- Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library -->
     <li class="nav-item">
-      <a href="{{route('admin.dashboard')}}" class="nav-link active">
+      <a href="{{route('student.dashboard')}}" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
           Dashboard
         </p>
       </a>
     </li>
-    {{-- <li class="nav-item">
-      <a href="{{route('student.book_seat_index')}}" class="nav-link">
-        <i class="nav-icon fas fa-users"></i>
+
+    <li class="nav-item">
+      <a href="{{route('student.subject_select_index')}}" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
         <p>
-          Seat Booking
+          {{__('Select Subject')}}
         </p>
       </a>
-    </li> --}}
+    </li>
     <li class="nav-item">
-      <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-users"></i>
+      <a href="{{route('student.profile_index')}}" class="nav-link">
+        <i class="nav-icon fas fa-user"></i>
         <p>
-          {{__('')}}
+          {{__('My Profile')}}
         </p>
       </a>
     </li>

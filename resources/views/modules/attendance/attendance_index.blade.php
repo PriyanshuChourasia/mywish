@@ -25,7 +25,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title float-right"> </h3>
+                                <h3 class="card-title float-right"><a href="javascript:void(0)"
+                                    data-url="{{ route('admin.create_attendance') }}" class="btn btn-info load-popup">{{__('Add Attendance')}}</a></h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

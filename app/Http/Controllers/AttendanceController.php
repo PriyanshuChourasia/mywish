@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Seat;
 use App\Models\Student;
 use App\Models\Attendance;
+use App\Models\SubjectSelect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -26,12 +27,21 @@ class AttendanceController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($id)
+    public function create()
     {
-        $data['attendances'] = Seat::find($id);
+        $data['students'] = Student::all();
         return response()->json([
             'status' => 200,
             'html' => view('modules.attendance.create_attendance',$data)->render(),
+        ]);
+    }
+
+    public function getInfo($id)
+    {
+        $sub_id = SubjectSelect::where('student_id',$id)->pluck('subject_id')->first();
+        return response()->json([
+            'status'=> 200,
+            'sub_id' => $sub_id
         ]);
     }
 

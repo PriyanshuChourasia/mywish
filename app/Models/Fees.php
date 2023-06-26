@@ -26,10 +26,12 @@ class Fees extends Authenticatable
         'admission_fees',
         'monthly_fees',
         'paid_amount',
-        'fees_status',
+        'status',
         'due_amount',
         'duration',
-        'total_amount'
+        'total_amount',
+        'registration_date',
+        'month'
     ];
 
     /**
