@@ -1,18 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class StudentClassesController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('modules.student_classes.student_class_index');
+      
+        return response()->json([
+            'status' => 200,
+            'html' => view('layouts.section.login_section')->render()
+        ]);
     }
 
     /**

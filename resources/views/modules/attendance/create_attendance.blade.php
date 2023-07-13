@@ -110,6 +110,7 @@
         $('#student_id').change(function(e) {
             e.preventDefault();
 
+            $('#attendance_register').prop('disabled',true);
             var id = $(this).val();
 
             $.ajax({
@@ -126,6 +127,7 @@
                     }else if(data.sub_id != null)
                     {
                         $('#present_box').show();
+                        $('#attendance_register').prop('disabled',false);
                     }
                 }
             });
@@ -133,12 +135,9 @@
         $('#register_attendance').on('submit', function(e) {
             e.preventDefault();
 
+            $('#attendance_register').val('Please wait....');
+            $('#attendance_register').prop('disabled',true);
             var subject = $('#subject_id').val();
-
-
-
-
-
 
             var formData = new FormData(this);
 
@@ -153,6 +152,7 @@
                         console.log(response);
                         $('#attendance_register').val('Submit');
                         $('#attendance_register').prop('disabled', false);
+                        toastr.error('Please Select Student');
 
                     } else if (response.status === 200) {
                         toastr.success('Attendance Submitted Successfully');

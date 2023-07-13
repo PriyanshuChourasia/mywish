@@ -66,14 +66,14 @@
       </a>
     </li>
 
-    {{-- <li class="nav-item">
-      <a href="{{route('admin.routine_index')}}" class="nav-link">
+    <li class="nav-item">
+      <a href="{{route('admin.student_class_index')}}" class="nav-link">
         <i class="bi bi-card-list pr-2" style="font-size: 20px"></i>
         <p>
-          Routine setup
+          Classes
         </p>
       </a>
-    </li> --}}
+    </li>
     <li class="nav-item">
       <a href="{{route('admin.fees_index')}}" class="nav-link">
         <i class="bi bi-cash-coin pr-2" style="font-size: 20px"></i>

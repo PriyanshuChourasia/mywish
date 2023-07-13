@@ -40,7 +40,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
   });
 
   Route::prefix('modules/student_classes')->group(function(){
-    Route::get('student_class_index',[StudentClassesController::class, 'index'])->name('class_index');
+    Route::get('student_class_index',[StudentClassesController::class, 'index'])->name('student_class_index');
   });
 
   Route::prefix('modules/subject')->group(function(){
@@ -63,6 +63,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::get('create_attendance', [AttendanceController::class, 'create'])->name('create_attendance');
     Route::post('store_attendance',[AttendanceController::class, 'store'])->name('store_attendance');
     Route::get('get_info/{id}',[AttendanceController::class, 'getInfo'])->name('get_info'); 
+    Route::get('delete_attendance/{id}',[AttendanceController::class, 'destroy'])->name('delete_attendance');
   });
 
   Route::prefix('modules/routine')->group(function(){
@@ -95,6 +96,8 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::get('empty_card',[FeesController::class, 'empty'])->name('empty_card');
     Route::get('get_subs/{id}',[FeesController::class, 'getInfo'])->name('get_subs');
     Route::post('fee_paid/{id}',[FeesController::class, 'feesPayment'])->name('fee_paid');
+    Route::get('fees_pay_confirm/{id}',[FeesController::class, 'confirmCreate'])->name('fees_pay_confirm');
+    Route::post('confirm_fees/{id}',[FeesController::class,'confirmSave'])->name('confirm_fees');
   });
 
 

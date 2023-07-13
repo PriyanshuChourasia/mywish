@@ -9,8 +9,8 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-right">
                     {{-- <li class="breadcrumb-item"><a href="#" class="btn btn-info">Restore</a></li> --}}
-                    <li class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}"
-                            class="btn btn-dark">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)"
+                        data-url="{{ route('admin.create_fees') }}" class="btn btn-info load-popup">Create Card</a></li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -23,10 +23,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
+                        {{-- <div class="card-header">
                             <h3 class="card-title float-right"><a href="javascript:void(0)"
                                     data-url="{{ route('admin.create_fees') }}" class="btn btn-info load-popup">Create Card</a></h3>
-                        </div>
+                        </div> --}}
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">

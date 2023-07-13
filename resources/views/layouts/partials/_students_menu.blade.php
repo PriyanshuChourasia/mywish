@@ -19,10 +19,26 @@
       </a>
     </li>
     <li class="nav-item">
+      <a href="{{route('student.fees_card')}}" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
+        <p>
+          {{__('Fees')}}
+        </p>
+      </a>
+    </li>
+    <li class="nav-item">
       <a href="{{route('student.profile_index')}}" class="nav-link">
         <i class="nav-icon fas fa-user"></i>
         <p>
           {{__('My Profile')}}
+        </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="bi bi-card-list pr-2" style="font-size: 20px"></i>
+        <p>
+          {{__('Register Class')}}
         </p>
       </a>
     </li>

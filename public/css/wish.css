@@ -1,3 +1,441 @@
+
+
 *{
     user-select: none;
+    font-family: 'Roboto', sans-serif;
+}
+.logInSection{
+    background: rgba(252, 50, 28, 0.486);
+    background: linear-gradient(90deg, rgba(252, 50, 28, 0.5) 8%, rgba(206, 70, 113, 0.473) 51%, rgba(52, 46, 219, 0.445) 100%);
+    overflow: hidden;
+}
+
+
+.adminLogIn{
+    background: rgb(252,49,28);
+background: linear-gradient(90deg, rgba(252,49,28,1) 37%, rgba(206,70,113,1) 73%);
+transition: 1s all;
+
+}
+
+.adminLogIn:hover{
+    transition: 1s all;
+    box-shadow: 0 0 9px 8px rgb(248, 248, 248);
+}
+
+
+.studentLogin{
+    background: rgb(206,70,113);
+background: linear-gradient(90deg, rgba(206,70,113,1) 42%, rgba(51,44,219,1) 65%);
+transition: 1s all;
+}
+
+.studentLogin:hover{
+    transition: 1s all;
+    box-shadow: 0 0 9px 8px rgb(248, 248, 248);
+}
+
+.popup-btn{
+    width: 150px;
+    overflow: hidden;
+    height: 35px;
+    border-radius: 25px;
+    background: #4021db;
+    padding-top: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    transition: all 235ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.popup-btn:hover{
+    box-shadow: rgba(151, 140, 255, 0.712) 0px 2px 5px 2px inset, rgba(255, 127, 244, 0.651) 0 1px 0px 2px, rgba(130, 132, 255, 0.699) 0 2px 2px 0px, rgba(255, 255, 255, 0.671) -1px -2px 4px 2px, rgba(124, 185, 255, 0.767) 1px 1px 8px 2px, rgba(255, 136, 245, 0.801) -1px 1px 14px 7px;
+    transform: translate3d(0, 2px, 0);
+}
+
+.popup-btn:focus{
+    box-shadow: rgba(0, 38, 255, 0.349) 2px 8px 8px -6px;
+}
+
+.navbar-nav .nav-item  .nav-link{
+    font-size: 19px;
+    font-weight: 600;
+}
+.navbar-nav .nav-item .nav-link{
+    position: relative;
+    z-index: 2;
+    color: white;
+    transition: color 0.5s;
+}
+.navbar-nav .nav-item .nav-link::after{
+    content: '';
+    background: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    position: absolute;
+    color: black;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
+    z-index: -1;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s ;
+}
+
+
+.navbar-nav .nav-item .nav-link:hover{
+    color: black;
+}
+
+.navbar-nav .nav-item .nav-link:hover::after{
+    opacity: 1;
+    top: 10%;
+}
+
+.navbar-background{
+    background-color: #08041b;
+}
+
+
+@media screen and (max-width: 992px) {
+    .popup-btn {
+        margin-bottom: 20px;
+    }
+    .navbar-nav{
+        margin-top: 20px;
+        padding: 5px;
+    }
+.navbar-nav .nav-item  .nav-link{
+    font-size: 19px;
+    font-weight: 600;
+}
+.navbar-nav .nav-item .nav-link{
+    position: relative;
+    z-index: 2;
+    color: white;
+    transition: color 0.5s;
+    margin-bottom: 15px;
+}
+.navbar-nav .nav-item .nav-link::after{
+    content: '';
+    background: white;
+    width: 25%;
+    height: 100%;
+    border-radius: 15px;
+    position: absolute;
+    color: black;
+    top: 0%;
+    left: -2%;
+    transform: translate(0%, 0%);
+    z-index: -1;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s ;
+}
+
+
+.navbar-nav .nav-item .nav-link:hover{
+    color: black;
+}
+
+.navbar-nav .nav-item .nav-link:hover::after{
+    opacity: 1;
+    top: 10%;
+}
+}
+
+
+
+
+
+
+
+/*                                  Welcome Section                                      */
+
+.animate-charcter
+{
+    font-weight:900; font-size:5px; 
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 4s linear infinite;
+  display: inline-block;
+    
+}
+
+
+
+@keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+
+
+.welcome_page{
+    background-image: url('/images/webwebp.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: border-box;
+    background-position: center;
+    height: 90vh;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+.welcome_quotes{
+    position: relative;
+    top: 205px;
+    color: rgb(235, 235, 235);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: 800;
+    background: rgb(146,141,240);
+    background: linear-gradient(90deg, rgba(146,141,240,1) 0%, rgba(244,143,191,1) 30%, rgba(98,98,226,1) 51%, rgba(244,133,192,1) 73%, rgba(152,231,247,1) 100%);
+    animation: fade-up 0.5s forwards;
+}
+
+@keyframes fade-up {
+    0%{
+        opacity: 0;
+        transform: translateY(50px) scale(0.5);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+
+.welcome_register{
+    position: relative;
+    top: 280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 220px;
+    height: 60px;
+    border: none;
+    background: #4021db;
+    border-radius: 35px;
+    overflow: hidden;
+    transition: 0.6s all;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.5s all;
+   
+}
+
+
+
+.welcome_register:hover{
+    background: white;
+    color: black;
+}
+
+
+.welcome_about{
+color: white;
+ background: linear-gradient(rgba(28, 18, 83, 0.8), rgba(21, 20, 83, 0.8)) ,url('/images/backtilesdark.jpg');
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-clip: border-box;
+}
+
+
+.welcome_about_text{
+    font-size: 15px;
+    text-align: justify;
+}
+
+
+.welcome_about .row .border_left{
+    border-left: 0.5px solid white;
+}
+
+
+.welcome_course_card_one{
+    background: rgb(78,153,255);
+    background: linear-gradient(90deg, rgba(78,153,255,0.9808298319327731) 13%, rgba(55,79,255,0.9724264705882353) 30%);
+width: 24rem;
+}
+
+
+.welcome_card_two{
+    background: rgb(255,0,124);
+    background: linear-gradient(90deg, rgba(255,0,124,0.9808298319327731) 13%, rgba(255,55,153,0.9724264705882353) 30%);
+width: 24rem;
+}
+
+.welcome_card_three{
+    background: rgb(12,13,213);
+background: linear-gradient(90deg, rgba(12,13,213,0.9808298319327731) 13%, rgba(5,20,131,0.9724264705882353) 30%);
+width: 24rem;
+}
+
+
+
+
+.registerClassBtn{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;    
+    width: 200px;
+    height: 40px;
+    background: white;
+    margin: 0 auto;
+    padding-top: 8px;
+    border-radius: 23px;
+}
+
+
+.welcome_para{
+    text-align: justify;
+}
+
+.welcome_course_card{
+    height: 350px;
+    background-image: url('/images/onlineEdu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    /* background-position: center; */
+    overflow: hidden;
+}
+
+.welcome_course_card_body{
+    background: rgba(24, 24, 24, 0.733);
+    backdrop-filter: blur(2px);
+    right: -100%;
+    position: relative;
+    transition: 2s;
+}
+
+
+.welcome_course_card:hover .welcome_course_card_body{
+    right: 0;
+}
+
+
+.welcome_course_card_two{
+    width: 100%;
+    height: 350px;
+    background-image: url('/images/educator.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    background-position: center;
+    overflow: hidden;
+}
+
+
+.welcome_course_card_two:hover .welcome_course_card_body{
+    right: 0;
+}
+
+
+.welcome_course_card_three{
+    width: 100%;
+    height: 350px;
+    background-image: url('/images/practical.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    background-position: center;
+    overflow: hidden;
+}
+
+.welcome_course_card_three:hover .welcome_course_card_body{
+    right: 0;
+}
+
+
+.classes_heading{
+    font-family: 'Roboto', sans-serif, 'Black 900';
+    font-weight: 600;
+}
+
+
+.classes_heading .card .card-img-top{
+    height: 200px;
+}
+
+.FeedBack{
+    width: 100%;
+    height: 90vh;
+    margin-top: 120px;
+    background-image: url('/images/webwebp.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.welcome_feedback{
+    height: 90vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+
+.feedback-img{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+
+
+
+.event_board{
+    height: 90px;
+    width: 390px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    overflow: hidden;
+    border: none;
+    padding: 6px;
+    padding-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.Events{
+    margin-top: 120px;
+}
+
+.event{
+position: relative;
 }

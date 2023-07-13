@@ -16,7 +16,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for=""></label>
+                            <label for="">Day Name</label>
+                            <input type="text" name="" id="">
                         </div>
                     </div>
                 </div>

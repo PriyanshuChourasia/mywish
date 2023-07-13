@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fees;
+use App\Models\Course;
 use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use App\Models\Course;
 use App\Models\SubjectSelect;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 class FeesController extends Controller
 {
@@ -21,6 +23,13 @@ class FeesController extends Controller
         return view('modules.fees.fees_index', $data);
     }
 
+
+    public function studentIndex()
+    {
+        $user = Auth::user()->id;
+        $data['collections'] = Fees::where('student_id',$user)->get();
+        return view('modules.fees.fees_card',$data);
+    }
 
 
     /**
@@ -78,6 +87,8 @@ class FeesController extends Controller
        
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      */
@@ -93,7 +104,8 @@ class FeesController extends Controller
             'total_amount' => 'required',
             'paid_amount' => 'required',
             'status' => 'required',
-            'due_amount' => ''
+            'due_amount' => '',
+            'payment_image' => ''
         ]);
 
         if ($validator->fails()) {
@@ -118,6 +130,18 @@ class FeesController extends Controller
             $fees->subject_id = $request->subject_id;
             $fees->paid_date = $request->registration_date;
             $fees->total_amount = $request->total_amount;
+            if ($request->hasFile('payment_image')) {
+                $destination = 'uploads/student/payment_image'.$fees->payment_image;
+                if(File::exists($destination))
+                {
+                    File::delete($destination);
+                }
+                $file = $request->file('payment_image');
+                $extention = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $extention;
+                $file->move('uploads/student/payment_image', $filename);
+                $fees->payment_image = $filename;
+            };
             $fees->save();
 
             $fees = new Fees();
@@ -163,6 +187,15 @@ class FeesController extends Controller
         ]);
     }
 
+    public function studentPay(Request $request, $id)
+    {
+        $fees_id = Fees::find($id);
+        return response()->json([
+            'status' => 200,
+            'html' => view('modules.fees.payment', compact('fees_id'))->render()
+        ]);
+    }
+
     public function getCard($id)
     {
         
@@ -186,6 +219,30 @@ class FeesController extends Controller
     }
 
     public function getInfo($id)
+    {
+        $sub_count = SubjectSelect::where('student_id',$id)->count();
+        
+        if($sub_count == 0)
+        {
+            return response()->json([
+                'status' => 400,
+            ]);
+        }else{
+            $sub_id = SubjectSelect::where('student_id','=',$id)->where('status','=','active')->pluck('subject_id');
+            // dd($sub_id);
+            $subject = Subject::where('id','=',$sub_id)->pluck('fees');
+            // dd($subject);
+           
+            return response()->json([
+                'status' => 200,
+                'sub' => $sub_id,
+                'amount' => $subject,
+    
+            ]);
+        }
+    }
+
+    public function IdInfo(Request $request, $id)
     {
         $sub_count = SubjectSelect::where('student_id',$id)->count();
         
@@ -242,6 +299,18 @@ class FeesController extends Controller
             $fees->paid_date = $request->paid_date;
             $fees->total_amount = $request->monthly_fees;
             $fees->student_id = $request->student_id;
+            if ($request->hasFile('payment_image')) {
+                $destination = 'uploads/student/payment_image'.$fees->payment_image;
+                if(File::exists($destination))
+                {
+                    File::delete($destination);
+                }
+                $file = $request->file('payment_image');
+                $extention = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $extention;
+                $file->move('uploads/student/payment_image', $filename);
+                $fees->payment_image = $filename;
+            };
             $fees->update();
 
             $fees = new Fees();
@@ -263,13 +332,121 @@ class FeesController extends Controller
         }
         
     }
+
+    public function feesPay(Request $request, $id)
+    {
+        $fees = Fees::find($id);
+       
+        $validator = Validator::make($request->all(),[
+            'subject_id' => 'required',
+            'monthly_fees' => 'required',
+            'paid_date' => 'required',
+            'paid_amount' => 'required',
+            'student_id' => '',
+            'status' => 'required'
+        ]);
+        if($validator->fails())
+        {
+            return response()->json([
+                'status' => 400,
+                'messages' => $validator->getMessageBag()
+            ]);
+        }else{
+            $fees->paid_amount = $request->paid_amount;
+            $fees->month = $request->month;
+            $fees->monthly_fees = $request->monthly_fees;
+            $fees->subject_id = $request->subject_id;
+            $fees->paid_date = $request->paid_date;
+            $fees->student_id = $request->student_id;
+            $fees->status = $request->status;
+            if ($request->hasFile('payment_image')) {
+                $destination = 'uploads/student/payment_image'.$fees->payment_image;
+                if(File::exists($destination))
+                {
+                    File::delete($destination);
+                }
+                $file = $request->file('payment_image');
+                $extention = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $extention;
+                $file->move('uploads/student/payment_image', $filename);
+                $fees->payment_image = $filename;
+            };
+            $fees->update();
+
+            $user = Auth::user()->id;
+        $data['collections'] = Fees::where('student_id',$user)->get();
+            return response()->json([
+                'status' => 200,
+                'html' => view('modules.fees.fees_card', $data)->render(),
+                'messages' => 'Fees Paid Successfully'
+            ]);
+
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Fees $fees)
+    public function confirmCreate(Request $request, $id)
     {
-        //
+        $fees = Fees::find($id);
+        return response()->json([
+            'status' => 200,
+            'html' => view('modules.fees.confirm_payment',compact('fees'))->render()
+        ]);
     }
+
+    public function confirmSave(Request $request, $id)
+    {
+        $fees = Fees::find($id);
+       
+        $validator = Validator::make($request->all(),[
+            'monthly_fees' => 'required',
+            'paid_date' => 'required',
+            'paid_amount' => 'required',
+            'status' => 'required',
+            'due_amount' => '',
+            'student_id' => '',
+            'subject_id' => ''
+        ]);
+        if($validator->fails())
+        {
+            return response()->json([
+                'status' => 400,
+                'messages' => $validator->getMessageBag()
+            ]);
+        }else{
+            $newDate = $request->paid_date;
+            $date = $newDate;
+            $newDate = date('Y-m-d', strtotime($date. '+ 1 months'));
+            $fees->next_fees_date  = $newDate;
+            $fees->paid_amount = $request->paid_amount;
+            $fees->status = $request->status;
+            $fees->due_amount = $request->due_amount;
+            $fees->monthly_fees = $request->monthly_fees;
+            $fees->paid_date = $request->paid_date;
+            $fees->total_amount = $request->monthly_fees;
+            $fees->update();
+
+            $fees = new Fees();
+            $fees->student_id = $request->student_id;
+            $fees->subject_id = $request->subject_id;
+            $fees->monthly_fees = $request->monthly_fees;
+            $newDate = $request->paid_date;
+            $date = $newDate;
+            $newDate = date('Y-m-d', strtotime($date. '+ 1 months'));
+            $fees->paid_date  = $newDate;
+            $fees->save();
+            $data['collections'] = Fees::where('student_id', '=', $id)->get();
+            return response()->json([
+                'status' => 200,
+                'html' => view('modules.fees.fees_card', $data)->render(),
+                'messages' => 'Fees Paid Successfully'
+            ]);
+
+        }
+    }
+ 
 
     /**
      * Update the specified resource in storage.

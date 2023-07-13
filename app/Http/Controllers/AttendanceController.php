@@ -112,8 +112,15 @@ class AttendanceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Attendance $attendance)
+    public function destroy(Attendance $attendance, $id)
     {
-        //
+        $attendance = Attendance::find($id);
+        
+        if(!is_null($attendance))
+        {
+            $attendance->delete();
+        }
+        
+        return redirect()->route('admin.attendance_index');
     }
 }

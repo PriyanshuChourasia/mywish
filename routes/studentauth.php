@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeesController;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\Student\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Student\StudentController;
@@ -40,6 +41,13 @@ Route::middleware('auth:student')->prefix('student')->name('student.')->group(fu
     Route::get('profile_index',[StudentController::class, 'profile'])->name('profile_index');
     Route::get('change_password/{id}',[StudentController::class, 'changePassword'])->name('change_password');
     Route::post('save_password/{id}',[StudentController::class, 'store'])->name('save_password');
+  });
+
+  Route::prefix('modules/fees')->group(function(){
+    Route::get('fees_card', [FeesController::class, 'studentIndex'])->name('fees_card');
+    Route::get('fees_pay_view/{id}',[FeesController::class, 'studentPay'])->name('fees_pay_view');
+    Route::get('get_subs/{id}',[FeesController::class, 'IdInfo'])->name('get_subs');
+    Route::post('fee_paid/{id}',[FeesController::class, 'feesPay'])->name('fee_paid');
   });
   
   

@@ -1,4 +1,4 @@
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('Create Fees Card') }}</h1>
@@ -93,6 +93,14 @@
                             <label for="">Due Amount</label>
                             <input type="number" name="due_amount" id="due_amount"
                                 class="form-control  text-black" value="" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Payment Image</label>
+                                <input type="file" name="payment_image" id="payment_image" class="form-control">
+                            </div>
                         </div>
                     </div>
                     <div class="text-center mt-3 mb-3">

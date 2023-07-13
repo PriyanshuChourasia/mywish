@@ -31,7 +31,8 @@ class Fees extends Authenticatable
         'duration',
         'total_amount',
         'registration_date',
-        'month'
+        'month',
+        'payment_image'
     ];
 
     /**

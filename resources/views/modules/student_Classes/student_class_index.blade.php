@@ -31,17 +31,13 @@
                     <thead>
                     <tr>
                       <th>SL_No</th>
-                      <th>Email</th>
-                      <th>Profile</th>
-                      <th>Contact</th>
-                      <th>Subject</th>
+                      <th>Student Name</th>
+                      <th>Subject ID</th>
                       <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th></th>
-                            <th></th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -52,8 +48,6 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                      <th></th>
-                      <th></th>
                       <th></th>
                       <th></th>
                       <th></th>
