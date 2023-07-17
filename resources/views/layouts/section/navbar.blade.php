@@ -17,9 +17,9 @@
                     <a class="nav-link "  href="#">Home</a>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="nav-link "  href="#">About</a>
+                    <a class="nav-link "  href="{{ route('aboutus') }}">About</a>
                 </li>
-                
+
             </ul>
             <div class="popup-btn text-center">
                 <a class="text-white text-decoration-none load-popup"  data-url="{{route('loginSection')}}" href="javascript:void(0)">{{__('JOIN')}}</a>

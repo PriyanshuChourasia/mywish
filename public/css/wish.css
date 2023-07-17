@@ -157,7 +157,7 @@ transition: 1s all;
 
 .animate-charcter
 {
-    font-weight:900; font-size:5px; 
+    font-weight:900; font-size:5px;
    text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
@@ -176,7 +176,7 @@ transition: 1s all;
   -webkit-text-fill-color: transparent;
   animation: textclip 4s linear infinite;
   display: inline-block;
-    
+
 }
 
 
@@ -237,12 +237,12 @@ transition: 1s all;
     width: 220px;
     height: 60px;
     border: none;
-    background: #4021db;
+    background: #D9886A;
     border-radius: 35px;
     overflow: hidden;
     transition: 0.6s all;
     text-decoration: none;
-    color: white;
+    color: rgb(12, 17, 39);
     display: flex;
     align-items: center;
     text-align: center;
@@ -251,7 +251,7 @@ transition: 1s all;
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: color 0.5s all;
-   
+
 }
 
 
@@ -283,8 +283,9 @@ color: white;
 
 
 .welcome_course_card_one{
-    background: rgb(78,153,255);
-    background: linear-gradient(90deg, rgba(78,153,255,0.9808298319327731) 13%, rgba(55,79,255,0.9724264705882353) 30%);
+    /* background: rgb(78,153,255);
+    background: linear-gradient(90deg, rgba(78,153,255,0.9808298319327731) 13%, rgba(55,79,255,0.9724264705882353) 30%); */
+    background-color: #D9886A;
 width: 24rem;
 }
 
@@ -309,7 +310,7 @@ width: 24rem;
     color: black;
     font-size: 15px;
     font-weight: 600;
-    letter-spacing: 2px;    
+    letter-spacing: 2px;
     width: 200px;
     height: 40px;
     background: white;
@@ -467,7 +468,7 @@ position: relative;
     border-radius: 0px;
     border-top: 2px solid black;
     background: #fae6ed;
-    
+
 }
 
 .program_card .btn_event{
@@ -550,7 +551,7 @@ padding-top: 100px;
 
 .welcome_footer_text{
     font-size: 14px;
-    text-align: justify;    
+    text-align: justify;
 }
 
 

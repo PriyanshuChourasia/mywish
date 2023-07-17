@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 .container-fluid{
-    background-image: url("/images/laptop2.jpg") !important;
+    background-image: url("/images/adminlog.jpg") !important;
     background-repeat: no-repeat !important;
     background-size: 100% !important;
 }
@@ -16,10 +16,10 @@
 }
 
 .btn{
-    
+
     background-color: #080032 !important;
     color: azure;
-    
+
 }
 
 ::placeholder{
@@ -34,11 +34,11 @@
     height: 450px;
     border: 1px solid rgba(255, 255, 255, 0.81);
     border-radius: 10px;
-  
+
     box-shadow: 1px 1px 40px 15px rgb(227, 255, 227);
     overflow: hidden;
     transition: 1s;
-    
+
 
 }
 .whole:hover{
@@ -162,7 +162,7 @@
     }
     .box{
         width: 100% !important;
-    
+
     }
     .input{
         height: 40px !important;
