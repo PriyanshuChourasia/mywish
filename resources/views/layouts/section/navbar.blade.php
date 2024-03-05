@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-background ">
-    <div class="container-fluid px-4">
+    <div class="px-4 container-fluid">
 
-        <a class="navbar-brand fw-bold text-white fs-2 " href="#">WISH</a>
+        <a class="text-white navbar-brand fw-bold fs-2 ms-3" href="#">
+            <img src="/images/logo.png" width="70" height="70" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -12,16 +14,20 @@
               </svg>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item px-2">
-                    <a class="nav-link "  href="#">Home</a>
-                </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link "  href="{{ route('aboutus') }}">About</a>
+            <ul class="mx-auto navbar-nav">
+                <li class="px-2 nav-item">
+                    <a class="nav-link  "  href="{{ route('home') }}">Home</a>
                 </li>
 
+
+                <li class="px-2 nav-item">
+                    <a class="nav-link "  href="{{ route('about') }}">About</a>
+                </li>
+                <li class="px-2 nav-item">
+                    <a class="nav-link "  href="{{ route('blog') }}">Blog</a>
+                </li>
             </ul>
-            <div class="popup-btn text-center">
+            <div class="text-center popup-btn">
                 <a class="text-white text-decoration-none load-popup"  data-url="{{route('loginSection')}}" href="javascript:void(0)">{{__('JOIN')}}</a>
             </div>
         </div>

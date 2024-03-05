@@ -1,0 +1,270 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #1F1F26;
+    width: 5px;
+    height: 120px;
+    border-start-end-radius: 20px;
+    border-bottom-left-radius: 20px;
+    animation: fromLeft 1.5s forwards;
+
+
+
+}
+@keyframes fromLeft {
+
+    100% {
+        width: 500px;
+
+    }
+}
+
+
+.about {
+    font-size: 80px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    color: #D8D9D7;
+    opacity: 0;
+
+    animation: fromTop 3s forwards;
+
+}
+
+@keyframes fromTop {
+    50%{
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+
+    }
+}
+
+.row-1 {
+    background-color: #D9886A !important;
+
+}
+
+.row-2 {
+    background-color: #1F1F26;
+
+
+}
+
+.row-2_text {
+    height: 600px;
+    line-height: 36px;
+    color: #D8D9D7;
+    font-size: 21px;
+    animation: fadeIn 6s;
+
+
+
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Lato:700");
+
+.row-1_text {
+    color: #1F1F26;
+    ;
+    line-height: 36px;
+    font-size: 21px;
+    animation: fadeIn 3s;
+}
+
+.text--scale [data-scroll='out'] .char {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+
+.title2 {
+    font-size: 60px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    color: #1F1F26;
+    letter-spacing: 3px;
+}
+
+.our-team {
+    height: 500px;
+    padding: 30px 0 40px;
+    margin-bottom: 30px;
+    background-color: #f7f5ec;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.222);
+}
+
+.line {
+    height: 3px;
+    width: 600px;
+    background-color: #1F1F26;
+
+}
+
+
+.our-team img {
+
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
+}
+
+.our-team .title {
+    display: block;
+    font-size: 15px;
+    color: #4e5052;
+    text-transform: capitalize;
+}
+
+.our-team .social {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #1F1F26;
+
+    left: 0;
+
+}
+
+
+
+.our-team .social li {
+    display: inline-block;
+}
+
+.our-team .social li a {
+    display: block;
+    padding: 25px;
+    font-size: 21px;
+    color: #D9886A;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+.our-team .social li a:hover {
+    color: #D9886A;
+    background-color: #f7f5ec;
+    border-radius: 50%;
+}
+
+.mi-vi {
+    background-color: #1F1F26;
+}
+
+.mission {
+    font-size: 65px;
+    color: #D8D9D7;
+    font-weight: 700;
+}
+
+.mission-txt {
+    font-size: 18px;
+    line-height: 36px;
+}
+
+.card {
+    background-color: #1F1F26;
+    color: #D8D9D7;
+
+}
+
+.c-header {
+    font-size: 23px;
+
+}
+.card-description{
+    line-height: 30px;
+}
+
+
+@media only screen and (max-width:768px) and (min-width:390px) {
+
+    .header {
+        width: 100%;
+        height: 80px;
+    }
+
+    .about {
+        font-size: 50px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 500;
+
+    }
+
+    .line {
+        width: 100%;
+    }
+
+    .text {
+        margin: 0;
+        width: 100% !important;
+
+    }
+
+    .row-2 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .row-2_text {
+        height: 800px;
+        line-height: 26px;
+        font-size: 18px;
+
+
+
+    }
+}
+
+@media only screen and (max-width:968px) and (min-width:768px) {
+    .row-1_text {
+        font-size: 18px;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .text {
+        margin: 0;
+        width: 100% !important;
+
+    }
+
+    .line {
+        width: 100%;
+    }
+
+    .row-2 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .row-2_text {
+        height: 800px;
+        line-height: 46px;
+        font-size: 18px;
+
+
+
+    }
+}
